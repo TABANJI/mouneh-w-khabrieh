@@ -1,0 +1,54 @@
+@media (max-width: 660px) {
+  .header-inner {
+    flex-wrap: wrap;
+  }
+
+  .brand-logo {
+    width: 100%;
+  }
+
+  .hero-panel,
+  .product-page .product-detail-panel,
+  .shop-layout,
+  .section-story-text,
+  .gifting-panel,
+  .newsletter-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-panel {
+    padding-top: 64px;
+  }
+
+  .hero-copy {
+    padding-bottom: 20px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .product-image,
+  .gallery-main,
+  .story-image,
+  .about-hero-image,
+  .contact-hero-image {
+    min-height: 320px;
+  }
+
+  .gallery-thumbs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mobile-nav,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-actions,
+  .hero-meta-grid,
+  .search-panel {
+    grid-template-columns: 1fr;
+  }
+}

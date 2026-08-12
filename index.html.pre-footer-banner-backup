@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mouneh w Khabrieh | Traditional Lebanese Pantry</title>
+  <meta name="description" content="Mouneh w Khabrieh presents premium Lebanese mouneh, olive oil, spices, preserves, and curated gift boxes with artisanal storytelling." />
+  <link rel="canonical" href="https://mounehwkhabrieh.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mouneh w Khabrieh | A Taste. A Tradition. A Story." />
+  <meta property="og:description" content="A modern celebration of Lebanese mouneh, carefully selected flavors, and recipes worth preserving." />
+  <meta property="og:url" content="https://mounehwkhabrieh.com/" />
+  <meta property="og:site_name" content="Mouneh w Khabrieh" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="page-shell homepage">
+    <section class="hero-panel">
+      <div class="hero-copy">
+        <span class="eyebrow">Lebanese Artisanal Pantry</span>
+        <h1>A Taste. A Tradition. A Story.</h1>
+        <p>A modern celebration of Lebanese mouneh, carefully selected flavors, and recipes worth preserving.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="shop.html">Shop the Collection</a>
+          <a class="button button-secondary" href="about.html">Discover Our Story</a>
+        </div>
+        <p class="hero-note"><span>01</span> Recipes, harvests and pantry traditions from across Lebanon.</p>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-image hero-image-1" aria-hidden="true"></div>
+        <span class="hero-media-caption">Lebanon, preserved.</span>
+      </div>
+    </section>
+
+    <section class="section section-intro">
+      <div class="section-heading badge-heading">
+        <span>Explore the pantry</span>
+        <h2>Curated categories for every table.</h2>
+      </div>
+      <div class="category-grid" id="categoryGrid"></div>
+    </section>
+
+    <section class="section section-featured">
+      <div class="section-heading">
+        <span>From our pantry</span>
+        <h2>Signature flavors from our pantry.</h2>
+        <div class="featured-carousel-controls" role="group" aria-label="Signature products carousel controls">
+          <button class="featured-carousel-button" id="featuredPrev" type="button" aria-label="Previous signature product" aria-controls="featuredProducts" disabled><span aria-hidden="true">←</span></button>
+          <button class="featured-carousel-button" id="featuredNext" type="button" aria-label="Next signature product" aria-controls="featuredProducts"><span aria-hidden="true">→</span></button>
+        </div>
+        <a class="section-view-all" href="shop.html">View all products <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="product-grid signature-card-grid" id="featuredProducts"></div>
+    </section>
+
+    <section class="section section-story-text split-panel">
+      <div class="story-copy">
+        <span>More than mouneh</span>
+        <h2>Preserving recipes, provenance, traditions and stories.</h2>
+        <p>Each jar and bottle is a chapter from the kitchen table of a Lebanese family. We honor the craft behind every spice, preserve and olive oil pressed with care.</p>
+        <a class="button button-secondary" href="about.html">Our Story</a>
+      </div>
+      <div class="story-image-wrap">
+        <div class="story-image story-image-1" aria-hidden="true"></div>
+        <span class="story-media-caption">Recipes carried forward.</span>
+      </div>
+    </section>
+
+    <section class="section section-values">
+      <div class="section-heading">
+        <span>Our values</span>
+        <h2>What guides every selection.</h2>
+      </div>
+      <div class="values-grid">
+        <article>
+          <span class="value-number">01</span>
+          <strong>Authentic Origins</strong>
+          <p>Ingredients from traditional Lebanese regions, selected for their character and clarity.</p>
+        </article>
+        <article>
+          <span class="value-number">02</span>
+          <strong>Carefully Selected</strong>
+          <p>Small-batch production, thoughtful presentation, and pantry-worthy quality.</p>
+        </article>
+        <article>
+          <span class="value-number">03</span>
+          <strong>Traditional Recipes</strong>
+          <p>Family knowledge and seasonal gestures woven into every preserve and spice mix.</p>
+        </article>
+        <article>
+          <span class="value-number">04</span>
+          <strong>Delivered with Care</strong>
+          <p>Secure packaging and attentive service for every order, near or far.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-editorial-transition">
+      <span class="editorial-transition-eyebrow">From Lebanon, with tradition</span>
+      <h2>Made to be remembered. Preserved to be shared.</h2>
+      <span class="editorial-transition-rule" aria-hidden="true"></span>
+      <p>Flavors, recipes and traditions carried from one table to another.</p>
+      <span class="editorial-transition-signature" aria-label="Mouneh w Khabrieh, Lebanon"><i aria-hidden="true"></i> Mouneh w Khabrieh · Lebanon</span>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <div id="site-overlays"></div>
+
+  <script src="data/products.js"></script>
+  <script src="data/categories.js"></script>
+  <script src="js/global.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

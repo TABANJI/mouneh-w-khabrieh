@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product | Mouneh w Khabrieh</title>
+  <meta name="description" content="Product details for premium Lebanese pantry items, including story, ingredients and origin." />
+  <link rel="canonical" href="https://mounehwkhabrieh.com/product.html" />
+  <meta property="og:type" content="product" />
+  <meta property="og:title" content="Premium Lebanese product from Mouneh w Khabrieh" />
+  <meta property="og:description" content="Explore product story, ingredients, origin, and curated serving ideas." />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/product.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="page-shell product-page">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span> / </span>
+      <a href="shop.html">Shop</a>
+      <span> / </span>
+      <span id="breadcrumbProduct">Product</span>
+    </nav>
+
+    <section class="product-detail-panel">
+      <div class="product-gallery">
+        <div class="gallery-main" id="productGalleryMain"></div>
+        <div class="gallery-thumbs" id="productGalleryThumbs"></div>
+      </div>
+      <div class="product-summary">
+        <div class="product-info-strip">
+          <span id="productCategory"></span>
+          <span class="dot-divider"></span>
+          <span id="productOrigin"></span>
+        </div>
+        <h1 id="productName">Premium Product</h1>
+        <p class="product-tagline" id="productTagline">A carefully selected pantry essential.</p>
+        <div class="product-pricing" id="productPricing"></div>
+        <div class="product-meta-row">
+          <div class="rating">★★★★☆</div>
+          <div class="availability" id="productAvailability"></div>
+        </div>
+        <p class="product-short" id="productShort"></p>
+        <form class="product-purchase-form" id="productPurchaseForm">
+          <div class="field-group">
+            <label for="sizeSelect">Size</label>
+            <select id="sizeSelect"></select>
+          </div>
+          <div class="field-group quantity-group">
+            <label for="quantityInput">Quantity</label>
+            <div class="stepper">
+              <button type="button" id="qtyMinus" aria-label="Decrease quantity">−</button>
+              <input id="quantityInput" type="number" value="1" min="1" />
+              <button type="button" id="qtyPlus" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+          <div class="action-row">
+            <button class="button button-primary" type="submit">Add to Cart</button>
+            <button class="button button-secondary" type="button" id="buyNowButton">Buy Now</button>
+          </div>
+          <div class="action-links">
+            <button class="text-button" type="button" id="wishlistButton">Add to Wishlist</button>
+            <button class="text-button" type="button" id="shareButton">Share</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="product-story-grid">
+      <article>
+        <h2>The Story</h2>
+        <p id="productStory"></p>
+      </article>
+      <article>
+        <h3>Product details</h3>
+        <ul>
+          <li><strong>Ingredients:</strong> <span id="productIngredients"></span></li>
+          <li><strong>Origin:</strong> <span id="productOriginDetail"></span></li>
+          <li><strong>Storage:</strong> <span id="productStorage"></span></li>
+          <li><strong>Enjoy:</strong> <span id="productEnjoy"></span></li>
+        </ul>
+      </article>
+      <article>
+        <h3>Delivery information</h3>
+        <p>Orders ship in secure packaging with temperature-conscious materials. Delivery timelines are updated in checkout and our care team is available to assist.</p>
+      </article>
+    </section>
+
+    <section class="related-products">
+      <div class="section-heading">
+        <span>Recommended</span>
+        <h2>You May Also Like</h2>
+      </div>
+      <div class="product-grid" id="relatedProductGrid"></div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <div id="site-overlays"></div>
+  <script src="data/products.js"></script>
+  <script src="data/categories.js"></script>
+  <script src="js/global.js"></script>
+  <script src="js/product.js"></script>
+</body>
+</html>

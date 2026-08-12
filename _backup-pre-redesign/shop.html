@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop | Mouneh w Khabrieh</title>
+  <meta name="description" content="Browse premium Lebanese mouneh, spices, olive oil, preserves and curated gift boxes from Mouneh w Khabrieh." />
+  <link rel="canonical" href="https://mounehwkhabrieh.com/shop.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Shop | Mouneh w Khabrieh" />
+  <meta property="og:description" content="Browse premium Lebanese mouneh, spices, olive oil, preserves and curated gift boxes." />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/shop.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="page-shell shop-page">
+    <section class="shop-hero">
+      <div>
+        <span>Our collection</span>
+        <h1>Shop premium Lebanese pantry essentials.</h1>
+        <p>Filter by category, price and availability to discover the products that belong at your table.</p>
+      </div>
+      <div class="shop-highlights">
+        <span>New arrivals</span>
+        <span>Curated sets</span>
+        <span>Seasonal favorites</span>
+      </div>
+    </section>
+
+    <section class="shop-layout">
+      <aside class="shop-filters" aria-label="Shop filters">
+        <div class="filters-header">
+          <h2>Filters</h2>
+          <button id="clearFilters" class="text-button" type="button">Clear</button>
+        </div>
+        <div class="filter-group">
+          <label for="searchInput">Search</label>
+          <input id="searchInput" type="search" placeholder="Search products" />
+        </div>
+        <div class="filter-group">
+          <h3>Category</h3>
+          <div id="categoryFilters"></div>
+        </div>
+        <div class="filter-group">
+          <h3>Price</h3>
+          <div class="range-row">
+            <label>Min</label>
+            <input id="priceMin" type="number" min="0" placeholder="0" />
+          </div>
+          <div class="range-row">
+            <label>Max</label>
+            <input id="priceMax" type="number" min="0" placeholder="80" />
+          </div>
+        </div>
+        <div class="filter-group">
+          <h3>Availability</h3>
+          <label><input type="checkbox" id="filterInStock" /> In stock only</label>
+        </div>
+        <div class="filter-group">
+          <h3>Product type</h3>
+          <div id="tagFilters"></div>
+        </div>
+        <div class="filter-group">
+          <h3>On Sale</h3>
+          <label><input type="checkbox" id="filterOnSale" /> Show sale items</label>
+        </div>
+      </aside>
+
+      <section class="shop-results">
+        <div class="shop-controls">
+          <p id="resultCount"></p>
+          <div class="sort-row">
+            <label for="sortSelect">Sort by</label>
+            <select id="sortSelect">
+              <option value="featured">Featured</option>
+              <option value="newest">Newest</option>
+              <option value="low">Price low to high</option>
+              <option value="high">Price high to low</option>
+              <option value="name">Name</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="product-grid" id="shopProductGrid"></div>
+        <div class="pagination-row">
+          <button id="loadMore" class="button button-secondary" type="button">Load More</button>
+        </div>
+      </section>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <div id="site-overlays"></div>
+  <script src="data/products.js"></script>
+  <script src="data/categories.js"></script>
+  <script src="js/global.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>
