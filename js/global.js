@@ -485,8 +485,8 @@ const Mouneh = (function () {
     initHeaderInteractions();
     initializeSearchOverlay();
     initializeNewsletterForm();
-    if (window.location.pathname.endsWith("index.html") || window.location.pathname === "/") {
-      const categoryGrid = document.getElementById("categoryGrid");
+    const categoryGrid = document.getElementById("categoryGrid");
+    if (categoryGrid) {
       renderCategoryTiles(categoryGrid, categories);
     }
   }
