@@ -333,3 +333,144 @@
   .homepage .section-featured .product-grid,
   .homepage .signature-card-grid { grid-template-columns:1fr; }
 }
+
+/* Homepage product cards: compact, uncropped mobile presentation. */
+@media (min-width: 350px) and (max-width: 768px) {
+  .homepage .section-featured .section-heading h2 {
+    font-size:clamp(2.35rem,10.4vw,2.7rem);
+  }
+
+  .homepage .section-featured .product-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+    align-items:stretch;
+  }
+
+  .homepage .section-featured .product-card {
+    display:flex;
+    min-width:0;
+    height:auto;
+    flex-direction:column;
+  }
+
+  .homepage .section-featured .product-image-link {
+    display:block;
+    flex:0 0 auto;
+    overflow:hidden;
+  }
+
+  .homepage .section-featured .product-image {
+    width:100%;
+    min-height:0;
+    aspect-ratio:1 / 1.05;
+    padding:10px 8px;
+    place-items:center;
+    overflow:hidden;
+  }
+
+  .homepage .section-featured .product-packshot,
+  .homepage .section-featured .product-image[data-image-src$="olives-stuffed-with-chili.jpg"] .product-packshot,
+  .homepage .section-featured .product-image[data-image-src$="pickled-cucumbers.jpg"] .product-packshot {
+    width:100%;
+    height:100%;
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
+    object-position:center;
+    transform:none;
+  }
+
+  .homepage .section-featured .product-card-body,
+  .homepage .section-featured .details-pending .product-card-body {
+    display:flex;
+    min-height:0;
+    padding:11px 10px 12px;
+    gap:4px;
+    flex:1 1 auto;
+    flex-direction:column;
+  }
+
+  .homepage .section-featured .product-card-meta {
+    min-height:17px;
+    gap:4px;
+  }
+
+  .homepage .section-featured .product-category {
+    font-size:.625rem;
+    line-height:1.2;
+    letter-spacing:.11em;
+  }
+
+  .homepage .section-featured .product-badge {
+    top:8px;
+    left:8px;
+    max-width:calc(100% - 16px);
+    padding:4px 6px;
+    font-size:.52rem;
+    letter-spacing:.06em;
+  }
+
+  .homepage .section-featured .product-title {
+    display:-webkit-box;
+    min-height:2.2em;
+    max-height:3.3em;
+    overflow:hidden;
+    font-size:clamp(1.18rem,5.2vw,1.38rem);
+    line-height:1.08;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:3;
+  }
+
+  .homepage .section-featured .product-size {
+    font-size:.7rem;
+    line-height:1.2;
+  }
+
+  .homepage .section-featured .product-line { margin-top:1px; }
+  .homepage .section-featured .product-price {
+    font-size:1rem;
+    line-height:1.2;
+  }
+
+  .homepage .section-featured .product-actions,
+  .homepage .section-featured .details-pending .product-actions {
+    width:100%;
+    min-height:40px;
+    gap:6px;
+    margin-top:auto;
+    padding-top:6px;
+    align-items:center;
+  }
+
+  .homepage .section-featured .wishlist-button {
+    width:40px;
+    height:40px;
+    flex:0 0 40px;
+    font-size:1.05rem;
+  }
+
+  .homepage .section-featured .add-cart-button {
+    min-width:0;
+    min-height:40px;
+    padding:7px 3px;
+    font-size:.58rem;
+    letter-spacing:.07em;
+  }
+
+  .homepage .section-featured .details-pending .product-actions::after {
+    content:"Coming soon";
+    display:flex;
+    min-width:0;
+    min-height:40px;
+    padding:7px 4px;
+    flex:1 1 auto;
+    align-items:center;
+    justify-content:center;
+    color:#81796c;
+    border-bottom:1px solid rgba(52,66,51,.18);
+    font-size:.58rem;
+    font-weight:600;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+}
