@@ -604,10 +604,16 @@
 
 /* Final mobile homepage rhythm: content-driven sections without desktop spacing leaks. */
 @media (max-width: 768px) {
-  .homepage-body .site-header {
+  .homepage-body #site-header {
     position:sticky;
     top:0;
-    z-index:1000;
+    z-index:50;
+  }
+
+  .homepage-body .site-header {
+    position:relative;
+    top:auto;
+    z-index:auto;
     background:rgba(248,241,232,.97);
     border-bottom-color:rgba(74,70,58,.07);
     -webkit-backdrop-filter:blur(10px);
@@ -640,12 +646,12 @@
 
   .homepage .section-featured {
     padding-top:56px;
-    padding-bottom:44px;
+    padding-bottom:56px;
   }
 
   .homepage .section-story-text {
     min-height:0;
-    padding-top:20px;
+    padding-top:0;
     padding-bottom:0;
   }
 
@@ -732,8 +738,8 @@
   }
 
   .homepage ~ #site-footer .footer-grid {
-    grid-template-columns:minmax(0,.85fr) minmax(0,1.3fr);
-    column-gap:30px;
+    grid-template-columns:minmax(0,.82fr) minmax(0,1.35fr);
+    column-gap:24px;
     row-gap:48px;
     margin-bottom:52px;
   }
@@ -756,7 +762,7 @@
 
   .homepage ~ #site-footer .footer-grid a[href^="mailto:"] {
     font-size:clamp(.8125rem,3.35vw,.9375rem);
-    overflow-wrap:normal;
+    overflow-wrap:anywhere;
     word-break:normal;
   }
 

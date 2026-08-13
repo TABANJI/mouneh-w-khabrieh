@@ -261,7 +261,7 @@ const Mouneh = (function () {
           </div>
           <div>
             <span>Contact</span>
-            <a href="mailto:mounehwkhabrieh@gmail.com">mounehwkhabrieh@gmail.com</a>
+            <a href="mailto:mounehwkhabrieh@gmail.com">mounehwkhabrieh@<wbr>gmail.com</a>
             <a href="#">Instagram</a>
             <a href="#">TikTok</a>
             <a href="#">Facebook</a>
