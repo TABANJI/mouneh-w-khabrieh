@@ -89,6 +89,7 @@ body.overlay-open {
 .header-inner { max-width: 1440px; min-height: 88px; padding: 16px 40px; }
 .brand-logo { min-width: 255px; }
 .brand-name { font-family: Georgia,serif; font-size: 1.18rem; font-weight: 500; letter-spacing: -.02em; }
+.brand-name-ar { display:none; }
 .brand-logo small { font-size: .68rem; text-transform: uppercase; letter-spacing: .13em; }
 .desktop-nav { gap: clamp(17px,1.7vw,30px); }
 .desktop-nav a { position: relative; color: var(--charcoal); font-size: .88rem; }

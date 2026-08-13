@@ -91,6 +91,18 @@
     align-items:center;
   }
 
+  .homepage-body .brand-name-ar {
+    display:block;
+    width:fit-content;
+    margin-top:3px;
+    color:var(--gold);
+    font-family:Arial,Tahoma,sans-serif;
+    font-size:.8125rem;
+    font-weight:600;
+    line-height:1.1;
+    white-space:nowrap;
+  }
+
   .homepage-body .brand-logo small {
     display:none;
   }
@@ -126,7 +138,7 @@
   .homepage .hero-panel {
     min-height:0;
     grid-template-columns:1fr;
-    gap:38px;
+    gap:32px;
     padding:20px 0 0;
   }
   .homepage .hero-copy { max-width:none; padding:0; }
@@ -197,7 +209,7 @@
   }
   .homepage .hero-note {
     gap:10px;
-    margin-top:22px!important;
+    margin-top:19px!important;
     padding-top:12px;
     font-size:.64rem!important;
     line-height:1.35;

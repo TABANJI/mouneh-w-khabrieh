@@ -154,6 +154,7 @@ const Mouneh = (function () {
           <a class="brand-logo" href="index.html" aria-label="Mouneh w Khabrieh home">
             <div>
               <span class="brand-name">Mouneh w Khabrieh</span>
+              <span class="brand-name-ar" dir="rtl" lang="ar">مونة وخبرية</span>
               <small>Lebanese artisanal pantry</small>
             </div>
           </a>
