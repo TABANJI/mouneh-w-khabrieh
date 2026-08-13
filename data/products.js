@@ -88,8 +88,8 @@ const products = [
     featured: true,
     bestseller: false,
     newArrival: true,
-    stock: 20,
-    sizes: ["220g"],
+    stock: 100,
+    sizes: ["600G"],
     shortDescription: "A fragrant fig jam brightened with a whisper of orange blossom.",
     description: "Handcrafted from ripe figs and delicate flower water, this jam is soft, aromatic and perfect with cheese or morning toast.",
     story: "Inspired by coastal breakfasts and family celebrations, this preserve pairs Lebanon's fruit harvest with floral notes.",
@@ -239,8 +239,8 @@ const products = [
     featured: true,
     bestseller: false,
     newArrival: false,
-    stock: 28,
-    sizes: ["220g"],
+    stock: 100,
+    sizes: ["600G"],
     shortDescription: "Manufacturer product details will be available soon.",
     description: "Product specifications have not yet been confirmed.",
     story: "More information about this product will be added when verified.",
@@ -328,48 +328,48 @@ const products = [
   },
   {
     id: "wild-cucumbers", slug: "wild-cucumbers", name: "Wild Cucumbers",
-    category: "pickles-preserves", subcategory: "Preserved Vegetables", price: null, oldPrice: null, currency: "USD",
-    images: ["assets/images/wild-cucumbers.jpg"], badge: null, featured: true, bestseller: false, newArrival: false, stock: null,
-    sizes: ["Details coming soon"], shortDescription: "Manufacturer product details will be available soon.",
+    category: "pickles-preserves", subcategory: "Preserved Vegetables", price: 14, oldPrice: null, currency: "USD",
+    images: ["assets/images/wild-cucumbers.jpg"], badge: null, featured: true, bestseller: false, newArrival: false, stock: 100,
+    sizes: ["600G"], shortDescription: "Manufacturer product details will be available soon.",
     description: "Product specifications have not yet been confirmed.", story: "More information about this product will be added when verified.",
     origin: "Details coming soon", ingredients: "Details coming soon", storage: "Details coming soon", howToEnjoy: "Details coming soon",
-    tags: ["pickle", "preserve", "pantry"], detailsPending: true
+    tags: ["pickle", "preserve", "pantry"], detailsPending: false
   },
   {
     id: "thyme-labneh-rounds", slug: "thyme-labneh-rounds", name: "Thyme Labneh Rounds",
-    category: "mouneh", subcategory: "Labneh", price: null, oldPrice: null, currency: "USD",
-    images: ["assets/images/thyme-labneh-rounds.jpg"], badge: null, featured: true, bestseller: false, newArrival: false, stock: null,
-    sizes: ["Details coming soon"], shortDescription: "Manufacturer product details will be available soon.",
+    category: "mouneh", subcategory: "Labneh", price: 14, oldPrice: null, currency: "USD",
+    images: ["assets/images/thyme-labneh-rounds.jpg"], badge: null, featured: true, bestseller: false, newArrival: false, stock: 100,
+    sizes: ["600G"], shortDescription: "Manufacturer product details will be available soon.",
     description: "Product specifications have not yet been confirmed.", story: "More information about this product will be added when verified.",
     origin: "Details coming soon", ingredients: "Details coming soon", storage: "Details coming soon", howToEnjoy: "Details coming soon",
-    tags: ["labneh", "preserve", "pantry"], detailsPending: true
+    tags: ["labneh", "preserve", "pantry"], detailsPending: false
   },
   {
     id: "labneh-rounds-in-oil-goat", slug: "labneh-rounds-in-oil-goat", name: "Labneh Rounds in Oil — Goat",
-    category: "mouneh", subcategory: "Labneh", price: null, oldPrice: null, currency: "USD",
-    images: ["assets/images/labneh-rounds-in-oil–goat.jpg"], badge: null, featured: false, bestseller: false, newArrival: false, stock: null,
-    sizes: ["Details coming soon"], shortDescription: "Manufacturer product details will be available soon.",
+    category: "mouneh", subcategory: "Labneh", price: 14, oldPrice: null, currency: "USD",
+    images: ["assets/images/labneh-rounds-in-oil–goat.jpg"], badge: null, featured: false, bestseller: false, newArrival: false, stock: 100,
+    sizes: ["600G"], shortDescription: "Manufacturer product details will be available soon.",
     description: "Product specifications have not yet been confirmed.", story: "More information about this product will be added when verified.",
     origin: "Details coming soon", ingredients: "Details coming soon", storage: "Details coming soon", howToEnjoy: "Details coming soon",
-    tags: ["labneh", "preserve", "pantry"], detailsPending: true
+    tags: ["labneh", "preserve", "pantry"], detailsPending: false
   },
   {
     id: "green-olives-with-chili-paste", slug: "green-olives-with-chili-paste", name: "Green Olives with Chili Paste",
-    category: "pickles-preserves", subcategory: "Olives", price: null, oldPrice: null, currency: "USD",
-    images: ["assets/images/green-olives-with-chili-paste.jpg"], badge: null, featured: true, bestseller: false, newArrival: false, stock: null,
-    sizes: ["Details coming soon"], shortDescription: "Manufacturer product details will be available soon.",
+    category: "pickles-preserves", subcategory: "Olives", price: 14, oldPrice: null, currency: "USD",
+    images: ["assets/images/green-olives-with-chili-paste.jpg"], badge: null, featured: true, bestseller: false, newArrival: false, stock: 100,
+    sizes: ["600G"], shortDescription: "Manufacturer product details will be available soon.",
     description: "Product specifications have not yet been confirmed.", story: "More information about this product will be added when verified.",
     origin: "Details coming soon", ingredients: "Details coming soon", storage: "Details coming soon", howToEnjoy: "Details coming soon",
-    tags: ["olives", "preserve", "pantry"], detailsPending: true
+    tags: ["olives", "preserve", "pantry"], detailsPending: false
   },
   {
     id: "olives-stuffed-with-chili", slug: "olives-stuffed-with-chili", name: "Green Olives Stuffed with Chili",
-    category: "pickles-preserves", subcategory: "Olives", price: null, oldPrice: null, currency: "USD",
-    images: ["assets/images/olives-stuffed-with-chili.jpg"], badge: null, featured: false, bestseller: true, newArrival: false, stock: null,
-    sizes: ["Details coming soon"], shortDescription: "Manufacturer product details will be available soon.",
+    category: "pickles-preserves", subcategory: "Olives", price: 14, oldPrice: null, currency: "USD",
+    images: ["assets/images/olives-stuffed-with-chili.jpg"], badge: null, featured: false, bestseller: true, newArrival: false, stock: 100,
+    sizes: ["600G"], shortDescription: "Manufacturer product details will be available soon.",
     description: "Product specifications have not yet been confirmed.", story: "More information about this product will be added when verified.",
     origin: "Details coming soon", ingredients: "Details coming soon", storage: "Details coming soon", howToEnjoy: "Details coming soon",
-    tags: ["olives", "preserve", "pantry"], detailsPending: true
+    tags: ["olives", "preserve", "pantry"], detailsPending: false
   },
   {
     id: "jalapenos", slug: "jalapenos", name: "Jalapeños",
@@ -382,49 +382,49 @@ const products = [
   },
   {
     id: "mixed-pickles", slug: "mixed-pickles", name: "Mixed Pickles",
-    category: "pickles-preserves", subcategory: "Mixed Pickles", price: null, oldPrice: null, currency: "USD",
-    images: ["assets/images/mixedpickles-scaled.jpg"], badge: null, featured: false, bestseller: true, newArrival: false, stock: null,
-    sizes: ["Details coming soon"], shortDescription: "Manufacturer product details will be available soon.",
+    category: "pickles-preserves", subcategory: "Mixed Pickles", price: 14, oldPrice: null, currency: "USD",
+    images: ["assets/images/mixedpickles-scaled.jpg"], badge: null, featured: false, bestseller: true, newArrival: false, stock: 100,
+    sizes: ["600G"], shortDescription: "Manufacturer product details will be available soon.",
     description: "Product specifications have not yet been confirmed.", story: "More information about this product will be added when verified.",
     origin: "Details coming soon", ingredients: "Details coming soon", storage: "Details coming soon", howToEnjoy: "Details coming soon",
-    tags: ["pickle", "preserve", "pantry"], detailsPending: true
+    tags: ["pickle", "preserve", "pantry"], detailsPending: false
   },
   {
     id: "cornichons", slug: "cornichons", name: "Cornichons",
-    category: "pickles-preserves", subcategory: "Pickled Cucumbers", price: null, oldPrice: null, currency: "USD",
-    images: ["assets/images/cornichons.png"], badge: null, featured: false, bestseller: false, newArrival: false, stock: null,
-    sizes: ["Details coming soon"], shortDescription: "Manufacturer product details will be available soon.",
+    category: "pickles-preserves", subcategory: "Pickled Cucumbers", price: 14, oldPrice: null, currency: "USD",
+    images: ["assets/images/cornichons.png"], badge: null, featured: false, bestseller: false, newArrival: false, stock: 100,
+    sizes: ["600G"], shortDescription: "Manufacturer product details will be available soon.",
     description: "Product specifications have not yet been confirmed.", story: "More information about this product will be added when verified.",
     origin: "Details coming soon", ingredients: "Details coming soon", storage: "Details coming soon", howToEnjoy: "Details coming soon",
-    tags: ["pickle", "preserve", "pantry"], detailsPending: true
+    tags: ["pickle", "preserve", "pantry"], detailsPending: false
   },
   {
     id: "berry-jam", slug: "berry-jam", name: "Berry Jam",
-    category: "honey-jams", subcategory: "Jam", price: null, oldPrice: null, currency: "USD",
-    images: ["assets/images/berry-jam.png"], badge: null, featured: false, bestseller: true, newArrival: false, stock: null,
-    sizes: ["Details coming soon"], shortDescription: "Manufacturer product details will be available soon.",
+    category: "honey-jams", subcategory: "Jam", price: 14, oldPrice: null, currency: "USD",
+    images: ["assets/images/berry-jam.png"], badge: null, featured: false, bestseller: true, newArrival: false, stock: 100,
+    sizes: ["600G"], shortDescription: "Manufacturer product details will be available soon.",
     description: "Product specifications have not yet been confirmed.", story: "More information about this product will be added when verified.",
     origin: "Details coming soon", ingredients: "Details coming soon", storage: "Details coming soon", howToEnjoy: "Details coming soon",
-    tags: ["jam", "preserve", "pantry"], detailsPending: true
+    tags: ["jam", "preserve", "pantry"], detailsPending: false
   },
   {
     id: "pickled-cucumbers", slug: "pickled-cucumbers", name: "Pickled Cucumbers",
-    category: "pickles-preserves", subcategory: "Pickled Cucumbers", price: null, oldPrice: null, currency: "USD",
+    category: "pickles-preserves", subcategory: "Pickled Cucumbers", price: 14, oldPrice: null, currency: "USD",
     images: ["assets/images/pickled-cucumbers.jpg"], imageScale: 103, imagePosition: "center",
-    badge: null, featured: true, bestseller: false, newArrival: false, stock: null,
-    sizes: ["Details coming soon"], shortDescription: "Manufacturer product details will be available soon.",
+    badge: null, featured: true, bestseller: false, newArrival: false, stock: 100,
+    sizes: ["600G"], shortDescription: "Manufacturer product details will be available soon.",
     description: "Product specifications have not yet been confirmed.", story: "More information about this product will be added when verified.",
     origin: "Details coming soon", ingredients: "Details coming soon", storage: "Details coming soon", howToEnjoy: "Details coming soon",
-    tags: ["pickle", "preserve", "pantry"], detailsPending: true
+    tags: ["pickle", "preserve", "pantry"], detailsPending: false
   },
   {
     id: "spicy-labneh-rounds", slug: "spicy-labneh-rounds", name: "Spicy Labneh Rounds",
-    category: "mouneh", subcategory: "Labneh", price: null, oldPrice: null, currency: "USD",
+    category: "mouneh", subcategory: "Labneh", price: 14, oldPrice: null, currency: "USD",
     images: ["assets/images/spicy-labneh-rounds.jpg"], imageScale: 124, imagePosition: "center",
-    badge: null, featured: true, bestseller: false, newArrival: false, stock: null,
-    sizes: ["Details coming soon"], shortDescription: "Manufacturer product details will be available soon.",
+    badge: null, featured: true, bestseller: false, newArrival: false, stock: 100,
+    sizes: ["600G"], shortDescription: "Manufacturer product details will be available soon.",
     description: "Product specifications have not yet been confirmed.", story: "More information about this product will be added when verified.",
     origin: "Details coming soon", ingredients: "Details coming soon", storage: "Details coming soon", howToEnjoy: "Details coming soon",
-    tags: ["labneh", "preserve", "pantry"], detailsPending: true
+    tags: ["labneh", "preserve", "pantry"], detailsPending: false
   }
 ];
