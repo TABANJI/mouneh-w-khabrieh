@@ -56,54 +56,59 @@
 /* Premium homepage mobile composition. Desktop remains governed by the existing rules. */
 @media (max-width: 768px) {
   .homepage-body .header-inner {
-    min-height:82px;
-    padding:9px 12px;
-    gap:4px;
+    min-height:80px;
+    padding:8px clamp(12px,3.5vw,18px);
+    gap:6px;
+    justify-content:space-between;
   }
 
   .homepage-body .brand-logo {
     min-width:0;
-    gap:7px;
+    flex:1 1 auto;
+    gap:10px;
     margin-right:auto;
   }
 
   .homepage-body .brand-mark {
-    width:38px;
-    height:38px;
-    flex:0 0 38px;
-    font-size:.72rem;
+    width:48px;
+    height:48px;
+    flex:0 0 48px;
+    font-size:.78rem;
   }
 
   .homepage-body .brand-logo>div {
-    width:min(24vw,96px);
-    min-width:76px;
+    width:auto;
+    min-width:0;
   }
 
   .homepage-body .brand-name {
-    font-size:.9rem;
-    line-height:1.05;
+    overflow:visible;
+    font-size:1.125rem;
+    font-weight:600;
+    line-height:1;
+    letter-spacing:-.045em;
+    white-space:nowrap;
   }
 
   .homepage-body .brand-logo small {
-    display:block;
-    margin-top:3px;
-    font-size:.46rem;
-    line-height:1.12;
-    letter-spacing:.09em;
+    display:none;
   }
 
-  .homepage-body .header-actions { gap:0; }
+  .homepage-body .header-actions {
+    flex:0 0 auto;
+    gap:0;
+  }
   .homepage-body .header-actions .account-button { display:none; }
   .homepage-body .header-actions .mobile-menu-toggle { order:1; }
   .homepage-body .header-actions .icon-button {
-    width:44px;
+    width:38px;
     height:44px;
-    flex:0 0 44px;
+    flex:0 0 38px;
   }
-  .homepage-body .header-actions .ui-icon { width:19px; height:19px; }
+  .homepage-body .header-actions .ui-icon { width:23px; height:23px; }
   .homepage-body .header-actions .count-badge {
-    top:2px;
-    right:1px;
+    top:1px;
+    right:0;
     min-width:15px;
     height:15px;
     padding-inline:3px;
@@ -322,9 +327,10 @@
 }
 
 @media (max-width: 380px) {
-  .homepage-body .brand-logo>div { width:76px; }
-  .homepage-body .brand-logo small { display:none; }
-  .homepage-body .header-actions .icon-button { width:42px; flex-basis:42px; }
+  .homepage-body .header-inner { padding-inline:12px; gap:4px; }
+  .homepage-body .brand-logo { gap:7px; }
+  .homepage-body .brand-name { font-size:1.0625rem; letter-spacing:-.06em; }
+  .homepage-body .header-actions .icon-button { width:36px; flex-basis:36px; }
   .homepage .section-intro .category-grid,
   .homepage .section-featured .product-grid,
   .homepage .signature-card-grid { gap:12px 10px; }
