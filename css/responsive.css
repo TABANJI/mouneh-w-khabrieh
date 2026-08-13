@@ -601,3 +601,107 @@
     text-transform:uppercase;
   }
 }
+
+/* Final mobile homepage rhythm: content-driven sections without desktop spacing leaks. */
+@media (max-width: 768px) {
+  .homepage .section-intro {
+    padding-bottom:0;
+  }
+
+  .homepage .section-intro .category-grid {
+    gap:15px;
+  }
+
+  .homepage .section-featured {
+    padding-top:56px;
+    padding-bottom:64px;
+  }
+
+  .homepage .section-story-text {
+    min-height:0;
+    padding-bottom:0;
+  }
+
+  .homepage .section-story-text .story-image-wrap {
+    margin:0;
+  }
+
+  .homepage .section-story-text .story-copy {
+    min-height:0;
+    padding:56px 49px 60px;
+  }
+
+  .homepage .section-story-text .story-copy::after {
+    margin-top:28px;
+  }
+
+  .homepage .section-values {
+    padding-top:80px;
+    padding-bottom:40px;
+  }
+
+  .homepage .section-values .values-grid {
+    column-gap:30px;
+    row-gap:60px;
+  }
+
+  .homepage .section-values .values-grid article {
+    padding-top:22px;
+  }
+
+  .homepage .section-values .value-number {
+    margin-bottom:20px;
+  }
+
+  .homepage .section-editorial-transition {
+    min-height:0;
+    padding-top:48px;
+    padding-bottom:68px;
+  }
+
+  .homepage .section-editorial-transition h2 {
+    margin-top:30px;
+    margin-bottom:35px;
+  }
+
+  .homepage .editorial-transition-rule {
+    margin-bottom:30px;
+  }
+
+  .homepage .prefooter-commerce {
+    margin-top:0;
+  }
+
+  .homepage ~ #site-footer .site-footer {
+    padding-bottom:52px;
+  }
+
+  .homepage ~ #site-footer .footer-grid {
+    gap:52px;
+    margin-bottom:48px;
+  }
+
+  .homepage ~ #site-footer .footer-grid span {
+    margin-bottom:26px;
+  }
+
+  .homepage ~ #site-footer .footer-grid a {
+    margin-bottom:22px;
+  }
+
+  .homepage ~ #site-footer .footer-grid div a:last-child {
+    margin-bottom:0;
+  }
+
+  .homepage ~ #site-footer .footer-bottom {
+    flex-direction:column;
+    align-items:flex-start;
+    margin-top:0;
+    padding-top:38px;
+    gap:52px;
+  }
+
+  .homepage ~ #site-footer .footer-bottom p {
+    margin:0;
+  }
+}
