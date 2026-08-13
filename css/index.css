@@ -1459,7 +1459,8 @@
   .homepage .prefooter-commerce-image-origin {
     width:100%;
     flex-basis:100%;
-    object-position:center;
+    object-position:center 48%;
+    background:#d8cfbf;
     -webkit-mask-image:none;
     mask-image:none;
   }

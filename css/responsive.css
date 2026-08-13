@@ -86,7 +86,7 @@
     font-size:1.125rem;
     font-weight:600;
     line-height:1;
-    letter-spacing:-.045em;
+    letter-spacing:-.01em;
     white-space:nowrap;
     align-items:center;
   }
@@ -94,11 +94,11 @@
   .homepage-body .brand-name-ar {
     display:block;
     width:fit-content;
-    margin-top:3px;
+    margin-top:4px;
     color:var(--gold);
     font-family:Arial,Tahoma,sans-serif;
     font-size:.8125rem;
-    font-weight:600;
+    font-weight:500;
     line-height:1.1;
     white-space:nowrap;
   }
@@ -139,27 +139,29 @@
     min-height:0;
     grid-template-columns:1fr;
     gap:32px;
-    padding:20px 0 0;
+    padding:30px 0 0;
   }
   .homepage .hero-copy { max-width:none; padding:0; }
   .homepage .hero-copy .eyebrow {
     padding:0;
     background:transparent;
-    font-size:.62rem;
-    letter-spacing:.16em;
+    color:var(--gold);
+    font-size:.75rem;
+    font-weight:600;
+    letter-spacing:.15em;
   }
   .homepage .hero-copy h1 {
     max-width:390px;
     margin-top:20px;
-    font-size:54px;
-    line-height:.96;
+    font-size:53px;
+    line-height:.95;
     letter-spacing:-.025em;
   }
   .homepage .hero-copy>p:not(.hero-note) {
-    max-width:390px;
+    max-width:95%;
     margin:24px 0 26px;
-    font-size:1rem;
-    line-height:1.45;
+    font-size:1.0625rem;
+    line-height:1.55;
   }
   .homepage .hero-actions {
     display:flex;
@@ -172,6 +174,10 @@
     height:76px;
     min-height:76px;
     padding:18px;
+    border-radius:19px;
+    font-size:.9375rem;
+    font-weight:700;
+    letter-spacing:.06em;
     text-align:center;
   }
   .homepage .hero-actions>a.button.button-secondary {
@@ -188,8 +194,9 @@
     border-radius:0!important;
     background:transparent!important;
     box-shadow:none!important;
+    font-size:.875rem;
     font-weight:700;
-    letter-spacing:.1em;
+    letter-spacing:.04em;
     text-decoration:none!important;
   }
   .homepage .hero-actions>a.button.button-secondary::before { display:none!important; }
@@ -211,8 +218,8 @@
     gap:10px;
     margin-top:19px!important;
     padding-top:12px;
-    font-size:.64rem!important;
-    line-height:1.35;
+    font-size:.8125rem!important;
+    line-height:1.4;
   }
   .homepage .hero-visual { width:100%; padding:0; }
   .homepage .hero-visual::before { display:none; }
