@@ -11,6 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const sortSelect = document.getElementById("sortSelect");
   const loadMoreButton = document.getElementById("loadMore");
   const clearFiltersButton = document.getElementById("clearFilters");
+  const filtersPanel = document.getElementById("shopFilters");
+  const openFiltersButton = document.getElementById("openFilters");
+  const closeFiltersButton = document.getElementById("closeFilters");
+  const applyFiltersButton = document.getElementById("applyFilters");
 
   const tags = ["bestseller", "newArrival", "onSale", "gift", "pantry"];
   let activePage = 1;
@@ -137,7 +141,42 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  function setFilterDrawer(open, restoreFocus = true) {
+    if (!filtersPanel || !openFiltersButton) return;
+    filtersPanel.classList.toggle("is-open", open);
+    filtersPanel.setAttribute("aria-hidden", String(!open));
+    openFiltersButton.setAttribute("aria-expanded", String(open));
+    document.body.classList.toggle("filter-drawer-open", open);
+    if (open) closeFiltersButton?.focus();
+    else if (restoreFocus) openFiltersButton.focus();
+  }
+
+  function initializeFilterDrawer() {
+    if (!filtersPanel || !openFiltersButton) return;
+    const mobileQuery = window.matchMedia("(max-width: 768px)");
+    const syncAccessibility = () => {
+      if (mobileQuery.matches) {
+        filtersPanel.setAttribute("aria-hidden", String(!filtersPanel.classList.contains("is-open")));
+      } else {
+        filtersPanel.classList.remove("is-open");
+        filtersPanel.removeAttribute("aria-hidden");
+        openFiltersButton.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("filter-drawer-open");
+      }
+    };
+    openFiltersButton.addEventListener("click", () => setFilterDrawer(true));
+    closeFiltersButton?.addEventListener("click", () => setFilterDrawer(false));
+    applyFiltersButton?.addEventListener("click", () => setFilterDrawer(false));
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && filtersPanel.classList.contains("is-open")) setFilterDrawer(false);
+    });
+    mobileQuery.addEventListener?.("change", syncAccessibility);
+    window.addEventListener("pagehide", () => setFilterDrawer(false, false));
+    syncAccessibility();
+  }
+
   buildFilterOptions();
   attachInputEvents();
+  initializeFilterDrawer();
   renderProducts();
 });

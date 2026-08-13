@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="css/shop.css" />
   <link rel="stylesheet" href="css/responsive.css" />
 </head>
-<body>
+<body class="homepage-body shop-body">
   <div id="site-header"></div>
   <main class="page-shell shop-page">
     <section class="shop-hero">
@@ -30,10 +30,13 @@
     </section>
 
     <section class="shop-layout">
-      <aside class="shop-filters" aria-label="Shop filters">
+      <aside class="shop-filters" id="shopFilters" aria-label="Shop filters">
         <div class="filters-header">
           <h2>Filters</h2>
-          <button id="clearFilters" class="text-button" type="button">Clear</button>
+          <div class="filters-header-actions">
+            <button id="clearFilters" class="text-button" type="button">Clear</button>
+            <button id="closeFilters" class="filter-close" type="button" aria-label="Close filters">×</button>
+          </div>
         </div>
         <div class="filter-group">
           <label for="searchInput">Search</label>
@@ -66,11 +69,13 @@
           <h3>On Sale</h3>
           <label><input type="checkbox" id="filterOnSale" /> Show sale items</label>
         </div>
+        <button id="applyFilters" class="button filter-apply" type="button">Show results</button>
       </aside>
 
       <section class="shop-results">
         <div class="shop-controls">
           <p id="resultCount"></p>
+          <button class="mobile-filter-toggle" id="openFilters" type="button" aria-controls="shopFilters" aria-expanded="false">Filters</button>
           <div class="sort-row">
             <label for="sortSelect">Sort by</label>
             <select id="sortSelect">
