@@ -347,11 +347,12 @@
   }
 
   .homepage .section-featured .product-card {
+    position:relative;
     display:flex;
     min-width:0;
     min-height:0;
     height:auto;
-    max-height:380px;
+    max-height:340px;
     flex-direction:column;
     overflow:hidden;
     border-radius:22px;
@@ -368,7 +369,7 @@
 
   .homepage .section-featured .product-image {
     width:100%;
-    height:clamp(135px,36vw,155px);
+    height:clamp(130px,34vw,145px);
     min-height:0;
     aspect-ratio:auto;
     padding:9px 9px 6px;
@@ -381,9 +382,9 @@
   .homepage .section-featured .product-packshot,
   .homepage .section-featured .product-image[data-image-src$="olives-stuffed-with-chili.jpg"] .product-packshot,
   .homepage .section-featured .product-image[data-image-src$="pickled-cucumbers.jpg"] .product-packshot {
-    width:80%;
+    width:81%;
     height:86%;
-    max-width:80%;
+    max-width:81%;
     max-height:86%;
     object-fit:contain;
     object-position:center;
@@ -413,10 +414,11 @@
   }
 
   .homepage .section-featured .product-badge {
-    top:12px;
-    left:12px;
+    top:10px;
+    left:10px;
     max-width:calc(100% - 24px);
-    padding:3px 7px;
+    min-height:24px;
+    padding:4px 7px;
     font-size:.52rem;
     letter-spacing:.06em;
   }
@@ -448,40 +450,56 @@
   .homepage .section-featured .product-actions,
   .homepage .section-featured .details-pending .product-actions {
     width:100%;
-    min-height:36px;
-    gap:5px;
-    margin-top:auto;
-    padding-top:6px;
+    min-height:40px;
+    gap:0;
+    margin-top:6px;
+    padding-top:0;
     align-items:center;
-    justify-content:space-between;
+    justify-content:stretch;
   }
 
   .homepage .section-featured .wishlist-button {
-    width:36px;
-    height:36px;
-    flex:0 0 36px;
+    position:absolute;
+    top:10px;
+    right:10px;
+    z-index:4;
+    width:34px;
+    height:34px;
+    flex:0 0 34px;
+    border-color:rgba(52,66,51,.2);
+    background:rgba(255,253,249,.88);
+    backdrop-filter:blur(4px);
     font-size:1rem;
   }
 
   .homepage .section-featured .add-cart-button {
+    width:100%;
+    flex:1 1 100%;
     min-width:0;
-    min-height:36px;
-    padding:5px 3px;
+    min-height:40px;
+    padding:7px 8px;
+    color:#f8f1e5;
+    border:1px solid #253426;
+    border-radius:22px;
+    background:#253426;
     font-size:.58rem;
     letter-spacing:.08em;
+    text-align:center;
   }
 
   .homepage .section-featured .details-pending .product-actions::after {
     content:"Coming soon";
     display:flex;
     min-width:0;
-    min-height:36px;
-    padding:5px 3px;
+    min-height:40px;
+    padding:7px 8px;
     flex:1 1 auto;
     align-items:center;
     justify-content:center;
     color:#81796c;
-    border-bottom:1px solid rgba(52,66,51,.18);
+    border:1px solid rgba(52,66,51,.22);
+    border-radius:22px;
+    background:rgba(238,229,214,.62);
     font-size:.58rem;
     font-weight:600;
     letter-spacing:.08em;
