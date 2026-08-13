@@ -604,6 +604,32 @@
 
 /* Final mobile homepage rhythm: content-driven sections without desktop spacing leaks. */
 @media (max-width: 768px) {
+  .homepage-body .site-header {
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(248,241,232,.97);
+    border-bottom-color:rgba(74,70,58,.07);
+    -webkit-backdrop-filter:blur(10px);
+    backdrop-filter:blur(10px);
+  }
+
+  .homepage-body .site-header.scrolled {
+    background:rgba(248,241,232,.98);
+    box-shadow:0 7px 20px rgba(23,25,20,.045);
+  }
+
+  .homepage-body .header-actions .icon-button {
+    width:42px;
+    height:44px;
+    flex-basis:42px;
+  }
+
+  .homepage-body .header-actions .ui-icon {
+    width:24px;
+    height:24px;
+  }
+
   .homepage .section-intro {
     padding-bottom:0;
   }
@@ -614,11 +640,12 @@
 
   .homepage .section-featured {
     padding-top:56px;
-    padding-bottom:64px;
+    padding-bottom:44px;
   }
 
   .homepage .section-story-text {
     min-height:0;
+    padding-top:20px;
     padding-bottom:0;
   }
 
@@ -628,21 +655,35 @@
 
   .homepage .section-story-text .story-copy {
     min-height:0;
-    padding:56px 49px 60px;
+    padding:48px 49px 52px;
+  }
+
+  .homepage .section-story-text .story-copy h2 {
+    margin:26px 0 30px;
+    font-size:clamp(2.2rem,9vw,3rem);
+  }
+
+  .homepage .section-story-text .story-copy p {
+    margin-bottom:34px;
   }
 
   .homepage .section-story-text .story-copy::after {
-    margin-top:28px;
+    margin-top:46px;
+    padding-top:18px;
   }
 
   .homepage .section-values {
     padding-top:80px;
-    padding-bottom:40px;
+    padding-bottom:32px;
+  }
+
+  .homepage .section-values .section-heading {
+    margin-bottom:24px;
   }
 
   .homepage .section-values .values-grid {
     column-gap:30px;
-    row-gap:60px;
+    row-gap:50px;
   }
 
   .homepage .section-values .values-grid article {
@@ -656,16 +697,16 @@
   .homepage .section-editorial-transition {
     min-height:0;
     padding-top:48px;
-    padding-bottom:68px;
+    padding-bottom:60px;
   }
 
   .homepage .section-editorial-transition h2 {
     margin-top:30px;
-    margin-bottom:35px;
+    margin-bottom:32px;
   }
 
   .homepage .editorial-transition-rule {
-    margin-bottom:30px;
+    margin-bottom:28px;
   }
 
   .homepage .prefooter-commerce {
@@ -682,6 +723,7 @@
   }
 
   .homepage ~ #site-footer .footer-brand strong {
+    font-size:clamp(2.5rem,12vw,4rem);
     margin-bottom:26px;
   }
 
@@ -690,9 +732,9 @@
   }
 
   .homepage ~ #site-footer .footer-grid {
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    column-gap:36px;
-    row-gap:56px;
+    grid-template-columns:minmax(0,.85fr) minmax(0,1.3fr);
+    column-gap:30px;
+    row-gap:48px;
     margin-bottom:52px;
   }
 
@@ -703,7 +745,7 @@
   }
 
   .homepage ~ #site-footer .footer-grid a {
-    margin-bottom:20px;
+    margin-bottom:18px;
     font-size:1rem;
     line-height:1.4;
   }
@@ -713,9 +755,9 @@
   }
 
   .homepage ~ #site-footer .footer-grid a[href^="mailto:"] {
-    font-size:.9375rem;
-    overflow-wrap:anywhere;
-    word-break:break-word;
+    font-size:clamp(.8125rem,3.35vw,.9375rem);
+    overflow-wrap:normal;
+    word-break:normal;
   }
 
   .homepage ~ #site-footer .footer-bottom {
@@ -728,5 +770,25 @@
 
   .homepage ~ #site-footer .footer-bottom p {
     margin:0;
+  }
+}
+
+@media (max-width: 380px) {
+  .homepage-body .header-inner {
+    min-height:72px;
+    padding-inline:10px;
+  }
+
+  .homepage-body .brand-logo {
+    margin-right:4px;
+  }
+
+  .homepage-body .brand-name {
+    font-size:1.0625rem;
+  }
+
+  .homepage-body .header-actions .icon-button {
+    width:42px;
+    flex-basis:42px;
   }
 }
