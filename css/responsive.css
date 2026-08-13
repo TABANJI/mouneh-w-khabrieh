@@ -61,8 +61,8 @@
   }
 
   .homepage-body .header-inner {
-    min-height:80px;
-    padding:8px clamp(12px,3.5vw,18px);
+    min-height:72px;
+    padding:8px 20px;
     gap:6px;
     justify-content:space-between;
   }
@@ -74,13 +74,6 @@
     margin-right:12px;
   }
 
-  .homepage-body .brand-mark {
-    width:58px;
-    height:58px;
-    flex:0 0 58px;
-    overflow:hidden;
-  }
-
   .homepage-body .brand-logo>div {
     width:auto;
     min-width:0;
@@ -88,7 +81,7 @@
 
   .homepage-body .brand-name {
     overflow:visible;
-    font-size:1.125rem;
+    font-size:1.1875rem;
     font-weight:600;
     line-height:1;
     letter-spacing:-.045em;
@@ -340,14 +333,6 @@
   .homepage .section-intro .category-grid,
   .homepage .section-featured .product-grid,
   .homepage .signature-card-grid { gap:12px 10px; }
-}
-
-@media (max-width: 374px) {
-  .homepage-body .brand-mark {
-    width:52px;
-    height:52px;
-    flex-basis:52px;
-  }
 }
 
 @media (max-width: 349px) {

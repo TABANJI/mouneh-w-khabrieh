@@ -152,7 +152,6 @@ const Mouneh = (function () {
       <header class="site-header" role="banner">
         <div class="header-inner">
           <a class="brand-logo" href="index.html" aria-label="Mouneh w Khabrieh home">
-            <span class="brand-mark"><img src="assets/images/logo.png" alt="Mouneh w Khabrieh" /></span>
             <div>
               <span class="brand-name">Mouneh w Khabrieh</span>
               <small>Lebanese artisanal pantry</small>
