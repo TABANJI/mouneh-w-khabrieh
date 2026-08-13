@@ -636,6 +636,10 @@
     height:24px;
   }
 
+  .homepage .hero-visual {
+    display:none;
+  }
+
   .homepage .section-intro {
     padding-bottom:0;
   }
@@ -646,7 +650,7 @@
 
   .homepage .section-featured {
     padding-top:56px;
-    padding-bottom:56px;
+    padding-bottom:40px;
   }
 
   .homepage .section-story-text {
@@ -661,7 +665,7 @@
 
   .homepage .section-story-text .story-copy {
     min-height:0;
-    padding:48px 49px 52px;
+    padding:48px 49px;
   }
 
   .homepage .section-story-text .story-copy h2 {
@@ -670,11 +674,11 @@
   }
 
   .homepage .section-story-text .story-copy p {
-    margin-bottom:34px;
+    margin-bottom:30px;
   }
 
   .homepage .section-story-text .story-copy::after {
-    margin-top:46px;
+    margin-top:42px;
     padding-top:18px;
   }
 
