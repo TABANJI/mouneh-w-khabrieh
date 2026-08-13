@@ -58,7 +58,7 @@ const products = [
     price: 15,
     oldPrice: 18,
     currency: "USD",
-    images: ["assets/images/pomegranate-molasses-1.jpg"],
+    images: ["assets/images/Pomegranate-Molasses.jpg"],
     badge: "On Sale",
     featured: true,
     bestseller: false,
@@ -158,7 +158,7 @@ const products = [
     price: 12,
     oldPrice: null,
     currency: "USD",
-    images: ["assets/images/orange-blossom-water-1.jpg"],
+    images: ["assets/images/Orange-Blossom-Water.png"],
     badge: "Featured",
     featured: false,
     bestseller: false,
@@ -208,7 +208,7 @@ const products = [
     price: 12,
     oldPrice: 15,
     currency: "USD",
-    images: ["assets/images/rose-water-1.jpg"],
+    images: ["assets/images/Rose-Water.png"],
     badge: "On Sale",
     featured: false,
     bestseller: false,
@@ -426,5 +426,69 @@ const products = [
     description: "Product specifications have not yet been confirmed.", story: "More information about this product will be added when verified.",
     origin: "Details coming soon", ingredients: "Details coming soon", storage: "Details coming soon", howToEnjoy: "Details coming soon",
     tags: ["labneh", "preserve", "pantry"], detailsPending: false
+  },
+  {
+    id:"apple-vinegar", slug:"apple-vinegar", name:"Apple Vinegar", category:"molasses-syrups",
+    images:["assets/images/vpple vinegar.png"], price:null, oldPrice:null, stock:null, sizes:[], tags:["vinegar"], catalogPreview:true
+  },
+  {
+    id:"carob-molasses", slug:"carob-molasses", name:"Carob Molasses", category:"molasses-syrups",
+    images:["assets/images/Carob-Molasses.jpg"], price:null, oldPrice:null, stock:null, sizes:[], tags:["molasses"], catalogPreview:true
+  },
+  {
+    id:"chili-pepper-spread", slug:"chili-pepper-spread", name:"Chili Pepper Spread", category:"pickles-preserves",
+    images:["assets/images/Chili-Pepper-Spread.jpg"], price:null, oldPrice:null, stock:null, sizes:[], tags:["spread"], catalogPreview:true
+  },
+  {
+    id:"olive-tapenade-with-walnuts", slug:"olive-tapenade-with-walnuts", name:"Olive Tapenade with Walnuts", category:"pickles-preserves",
+    images:["assets/images/Olive-Tapenade-with-Walnuts.jpg"], price:null, oldPrice:null, stock:null, sizes:[], tags:["spread","olives"], catalogPreview:true
+  },
+  {
+    id:"rose-syrup", slug:"rose-syrup", name:"Rose Syrup", category:"molasses-syrups",
+    images:["assets/images/rose-syrup.jpg"], price:null, oldPrice:null, stock:null, sizes:[], tags:["syrup"], catalogPreview:true
+  },
+  {
+    id:"sage-water", slug:"sage-water", name:"Sage Water", category:"spices-herbs",
+    images:["assets/images/Sage-Water.png"], price:null, oldPrice:null, stock:null, sizes:[], tags:["floral"], catalogPreview:true
+  },
+  {
+    id:"spicy-aub-spread", slug:"spicy-aub-spread", name:"Spicy Aubergine Spread", category:"pickles-preserves",
+    images:["assets/images/spicy-aub-spread.jpg"], price:null, oldPrice:null, stock:null, sizes:[], tags:["spread"], catalogPreview:true
+  },
+  {
+    id:"spicy-olive-tapenade", slug:"spicy-olive-tapenade", name:"Spicy Olive Tapenade", category:"pickles-preserves",
+    images:["assets/images/Spicy-Olive-Tapenade.jpg"], price:null, oldPrice:null, stock:null, sizes:[], tags:["spread","olives"], catalogPreview:true
+  },
+  {
+    id:"spicy-aubergine", slug:"spicy-aubergine", name:"Spicy Aubergine", category:"pickles-preserves",
+    images:["assets/images/spicy-aubergine.jpg"], price:null, oldPrice:null, stock:null, sizes:[], tags:["spread"], catalogPreview:true
+  },
+  {
+    id:"sumac", slug:"sumac", name:"Sumac", category:"spices-herbs",
+    images:["assets/images/sumac1000b3.jpg"], price:null, oldPrice:null, stock:null, sizes:[], tags:["spice"], catalogPreview:true
+  },
+  {
+    id:"tahini", slug:"tahini", name:"Tahini", category:"mouneh",
+    images:["assets/images/Tahini.png"], price:null, oldPrice:null, stock:null, sizes:[], tags:["spread"], catalogPreview:true
+  },
+  {
+    id:"tomato-spread", slug:"tomato-spread", name:"Tomato Spread", category:"pickles-preserves",
+    images:["assets/images/Tomato-Spead.jpg"], price:null, oldPrice:null, stock:null, sizes:[], tags:["spread"], catalogPreview:true
+  },
+  {
+    id:"spicy-olive-oil", slug:"spicy-olive-oil", name:"Spicy Olive Oil", category:"olive-oil",
+    images:["assets/images/Spicy-Olive-Oil.jpg"], price:null, oldPrice:null, stock:null, sizes:[], tags:["olive"], catalogPreview:true
+  },
+  {
+    id:"thyme-mix", slug:"thyme-mix", name:"Thyme Mix", category:"spices-herbs",
+    images:["assets/images/Thyme-Mix..jpg"], price:null, oldPrice:null, stock:null, sizes:[], tags:["spice"], catalogPreview:true
+  },
+  {
+    id:"chocolate-hazelnut-spread", slug:"chocolate-hazelnut-spread", name:"Chocolate Hazelnut Spread", category:"sweets",
+    images:["assets/images/Chocolate-Hazelnut-Spread.png"], price:null, oldPrice:null, stock:null, sizes:[], tags:["spread","sweet"], catalogPreview:true
+  },
+  {
+    id:"chocolate-spread", slug:"chocolate-spread", name:"Chocolate Spread", category:"sweets",
+    images:["assets/images/Chocolate-Spread.png"], price:null, oldPrice:null, stock:null, sizes:[], tags:["spread","sweet"], catalogPreview:true
   }
 ];

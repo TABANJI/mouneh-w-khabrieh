@@ -394,6 +394,7 @@ const Mouneh = (function () {
 
   function renderProductCard(product, options = {}) {
     const isWishlisted = isInWishlist(product.id);
+    const isCatalogPreview = Boolean(product.catalogPreview);
     const cardClasses = ["product-card"];
     if (product.badge) cardClasses.push("has-badge");
     if (product.detailsPending) cardClasses.push("details-pending");
@@ -411,14 +412,14 @@ const Mouneh = (function () {
             ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ""}
           </div>
           <a class="product-title" href="product.html?product=${product.slug}">${product.name}</a>
-          ${minimalPending ? "" : `<span class="product-size">${product.sizes.join(" · ")}</span>`}
-          ${minimalPending ? "" : `<div class="product-line">
+          ${minimalPending || isCatalogPreview || !product.sizes?.length ? "" : `<span class="product-size">${product.sizes.join(" · ")}</span>`}
+          ${minimalPending || isCatalogPreview || !Number.isFinite(product.price) ? "" : `<div class="product-line">
             <span class="product-price">${product.detailsPending ? "Details coming soon" : formatPrice(product.price)}</span>
             ${product.oldPrice ? `<span class="product-old-price">${formatPrice(product.oldPrice)}</span>` : ""}
           </div>`}
           <div class="product-actions">
             <button class="wishlist-button ${isWishlisted ? "is-saved" : ""}" data-product-id="${product.id}" type="button" aria-label="${isWishlisted ? "Remove from" : "Add to"} wishlist">♡</button>
-            ${minimalPending ? "" : `<button class="button button-sm add-cart-button" data-product-id="${product.id}" type="button" ${product.detailsPending ? "disabled" : ""}>${product.detailsPending ? "Coming Soon" : "Add to Cart"}</button>`}
+            ${minimalPending || isCatalogPreview || !Number.isFinite(product.price) ? "" : `<button class="button button-sm add-cart-button" data-product-id="${product.id}" type="button" ${product.detailsPending ? "disabled" : ""}>${product.detailsPending ? "Coming Soon" : "Add to Cart"}</button>`}
           </div>
         </div>
       </article>

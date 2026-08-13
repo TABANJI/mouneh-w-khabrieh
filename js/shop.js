@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const applyFiltersButton = document.getElementById("applyFilters");
 
   const tags = ["bestseller", "newArrival", "onSale", "gift", "pantry"];
+  let catalogProducts = [];
   let activePage = 1;
   const pageSize = 8;
 
@@ -58,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const queryCategory = Mouneh.getQueryParam("category");
     const searchQuery = Mouneh.getQueryParam("search");
 
-    let filtered = products.filter((product) => {
+    let filtered = catalogProducts.filter((product) => {
       const matchesCategory = filters.categories.length
         ? filters.categories.includes(product.category)
         : queryCategory
@@ -67,7 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const matchesTag = filters.tags.length ? filters.tags.some((tag) => product.tags.includes(tag)) : true;
       const matchesStock = filters.inStock ? product.stock > 0 : true;
       const matchesSale = filters.onSale ? Boolean(product.oldPrice) : true;
-      const matchesPrice = product.price >= filters.minPrice && product.price <= filters.maxPrice;
+      const hasPriceFilter = filters.minPrice > 0 || Number.isFinite(filters.maxPrice);
+      const matchesPrice = !hasPriceFilter || (Number.isFinite(product.price) && product.price >= filters.minPrice && product.price <= filters.maxPrice);
       const searchValue = [product.name, product.category, product.subcategory, product.shortDescription, product.story].join(" ").toLowerCase();
       const matchesSearch = filters.search ? searchValue.includes(filters.search) : searchQuery ? searchValue.includes(searchQuery.toLowerCase()) : true;
       return matchesCategory && matchesTag && matchesStock && matchesSale && matchesPrice && matchesSearch;
@@ -175,8 +177,28 @@ document.addEventListener("DOMContentLoaded", () => {
     syncAccessibility();
   }
 
+  function imageLoads(src) {
+    return new Promise((resolve) => {
+      if (!src || !src.trim()) return resolve(false);
+      const image = new Image();
+      image.onload = () => resolve(image.naturalWidth > 0);
+      image.onerror = () => resolve(false);
+      image.src = src;
+    });
+  }
+
+  async function initializeCatalogProducts() {
+    const checks = await Promise.all(products.map(async (product) => ({
+      product,
+      valid:await imageLoads(product.images?.[0] || "")
+    })));
+    catalogProducts = checks.filter((entry) => entry.valid).map((entry) => entry.product);
+    renderProducts();
+  }
+
   buildFilterOptions();
   attachInputEvents();
   initializeFilterDrawer();
-  renderProducts();
+  if (resultCount) resultCount.textContent = "Loading products";
+  initializeCatalogProducts();
 });
