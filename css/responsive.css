@@ -673,32 +673,57 @@
   }
 
   .homepage ~ #site-footer .site-footer {
-    padding-bottom:52px;
+    padding-bottom:44px;
   }
 
-  .homepage ~ #site-footer .footer-grid {
-    gap:52px;
-    margin-bottom:48px;
+  .homepage ~ #site-footer .footer-brand {
+    margin-bottom:38px;
+    padding-bottom:34px;
   }
 
-  .homepage ~ #site-footer .footer-grid span {
+  .homepage ~ #site-footer .footer-brand strong {
     margin-bottom:26px;
   }
 
+  .homepage ~ #site-footer .footer-brand p {
+    margin:0;
+  }
+
+  .homepage ~ #site-footer .footer-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    column-gap:36px;
+    row-gap:56px;
+    margin-bottom:52px;
+  }
+
+  .homepage ~ #site-footer .footer-grid span {
+    margin-bottom:28px;
+    font-size:.95rem;
+    line-height:1.35;
+  }
+
   .homepage ~ #site-footer .footer-grid a {
-    margin-bottom:22px;
+    margin-bottom:20px;
+    font-size:1rem;
+    line-height:1.4;
   }
 
   .homepage ~ #site-footer .footer-grid div a:last-child {
     margin-bottom:0;
   }
 
+  .homepage ~ #site-footer .footer-grid a[href^="mailto:"] {
+    font-size:.9375rem;
+    overflow-wrap:anywhere;
+    word-break:break-word;
+  }
+
   .homepage ~ #site-footer .footer-bottom {
     flex-direction:column;
     align-items:flex-start;
     margin-top:0;
-    padding-top:38px;
-    gap:52px;
+    padding-top:30px;
+    gap:16px;
   }
 
   .homepage ~ #site-footer .footer-bottom p {
