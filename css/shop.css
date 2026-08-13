@@ -192,8 +192,8 @@
 
   .shop-page .shop-hero {
     gap:0;
-    padding-top:52px;
-    padding-bottom:44px;
+    padding-top:46px;
+    padding-bottom:38px;
   }
 
   .shop-hero>div:first-child>span {
@@ -204,9 +204,9 @@
 
   .shop-hero h1 {
     max-width:390px;
-    margin:22px 0 24px;
-    font-size:clamp(3rem,13.5vw,3.625rem);
-    line-height:.95;
+    margin:20px 0 22px;
+    font-size:clamp(2.8rem,12.7vw,3.4rem);
+    line-height:.94;
   }
 
   .shop-hero p {
@@ -218,7 +218,7 @@
 
   .shop-highlights {
     gap:8px;
-    margin-top:28px;
+    margin-top:24px;
     align-items:center;
   }
 
@@ -235,7 +235,7 @@
 
   .shop-layout {
     display:block;
-    margin-top:28px;
+    margin-top:22px;
   }
 
   .shop-filters {
@@ -326,9 +326,9 @@
   .shop-controls {
     display:grid;
     grid-template-columns:1fr auto auto;
-    gap:10px;
-    margin-bottom:18px;
-    padding-bottom:14px;
+    gap:8px;
+    margin-bottom:12px;
+    padding-bottom:10px;
     align-items:center;
   }
 
@@ -342,8 +342,8 @@
 
   .mobile-filter-toggle {
     display:inline-flex;
-    min-height:42px;
-    padding:9px 13px;
+    min-height:38px;
+    padding:7px 12px;
     align-items:center;
     border:1px solid rgba(37,52,38,.2);
     border-radius:21px;
@@ -361,7 +361,7 @@
 
   .sort-row label { display:none; }
   .sort-row select {
-    min-height:42px;
+    min-height:38px;
     max-width:120px;
     padding:8px 28px 8px 10px;
     border:1px solid rgba(37,52,38,.2);
@@ -371,9 +371,18 @@
 
   #shopProductGrid {
     grid-template-columns:repeat(2,minmax(0,1fr));
-    column-gap:14px;
-    row-gap:10px;
+    column-gap:8px;
+    row-gap:7px;
     align-items:stretch;
+  }
+
+  .shop-page .shop-results {
+    width:calc(100% + 16px);
+    margin-inline:-8px;
+  }
+
+  .shop-page .shop-controls {
+    margin-inline:8px;
   }
 
   .shop-page #shopProductGrid .product-card {
@@ -446,11 +455,7 @@
   }
 
   .shop-page #shopProductGrid .image-fallback-label {
-    inset:50% 12px auto;
-    color:#81796c;
-    font:italic .75rem/1.35 Georgia,serif;
-    text-align:center;
-    transform:translateY(-50%);
+    display:none;
   }
 
   .shop-page #shopProductGrid .product-card-body {
@@ -510,6 +515,10 @@
   }
 
   .shop-page #shopProductGrid .product-line {
+    display:flex;
+    gap:6px;
+    align-items:baseline;
+    flex-wrap:nowrap;
     margin:0 0 2px;
   }
 
@@ -560,6 +569,98 @@
   }
 
   .pagination-row { margin-top:24px; }
+
+  .pagination-row .button {
+    min-height:44px;
+    padding:10px 22px;
+    color:#f8f1e5;
+    border:1px solid var(--olive);
+    border-radius:22px;
+    background:var(--olive);
+  }
+
+  .shop-page ~ #site-footer {
+    padding-top:0;
+    background:var(--bg);
+  }
+
+  .shop-page ~ #site-footer .site-footer {
+    padding:36px 20px 44px;
+    color:var(--text);
+    border-top:1px solid rgba(157,130,77,.11);
+    background:var(--bg);
+  }
+
+  .shop-page ~ #site-footer .footer-brand {
+    margin-bottom:38px;
+    padding-bottom:34px;
+    border-bottom:1px solid rgba(157,130,77,.18);
+  }
+
+  .shop-page ~ #site-footer .footer-brand span,
+  .shop-page ~ #site-footer .footer-grid span {
+    color:#8b7041;
+    font-weight:700;
+    letter-spacing:.14em;
+  }
+
+  .shop-page ~ #site-footer .footer-brand strong {
+    margin:12px 0 26px;
+    color:#363a31;
+    font-size:clamp(2.5rem,12vw,4rem);
+    opacity:1;
+  }
+
+  .shop-page ~ #site-footer .footer-brand p {
+    margin:0;
+    color:#656456;
+  }
+
+  .shop-page ~ #site-footer .footer-grid {
+    grid-template-columns:minmax(0,.82fr) minmax(0,1.35fr);
+    column-gap:24px;
+    row-gap:48px;
+    margin-bottom:52px;
+  }
+
+  .shop-page ~ #site-footer .footer-grid span {
+    margin-bottom:28px;
+    font-size:.95rem;
+    line-height:1.35;
+  }
+
+  .shop-page ~ #site-footer .footer-grid a {
+    width:fit-content;
+    margin-bottom:18px;
+    color:#656456;
+    font-size:1rem;
+    line-height:1.4;
+  }
+
+  .shop-page ~ #site-footer .footer-grid div a:last-child {
+    margin-bottom:0;
+  }
+
+  .shop-page ~ #site-footer .footer-grid a[href^="mailto:"] {
+    max-width:100%;
+    font-size:clamp(.8125rem,3.35vw,.9375rem);
+    overflow-wrap:anywhere;
+    word-break:normal;
+  }
+
+  .shop-page ~ #site-footer .footer-bottom {
+    flex-direction:column;
+    align-items:flex-start;
+    gap:16px;
+    margin-top:0;
+    padding-top:30px;
+    color:#656456;
+    border-top:1px solid rgba(157,130,77,.11);
+  }
+
+  .shop-page ~ #site-footer .footer-bottom p {
+    margin:0;
+  }
 }
 
 @media (prefers-reduced-motion:reduce) and (max-width:768px) {
