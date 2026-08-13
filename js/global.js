@@ -400,9 +400,9 @@ const Mouneh = (function () {
     const minimalPending = options.minimalPending && product.detailsPending;
     return `
       <article class="${cardClasses.join(" ")}">
-        <a class="product-image-link" href="product.html?product=${product.slug}">
+        <a class="product-image-link" href="product.html?product=${product.slug}" aria-label="View ${product.name}">
           <div class="product-image" data-image-src="${product.images[0]}">
-            <img class="product-packshot" src="${product.images[0]}" alt="${product.name}" loading="lazy" decoding="async" style="--packshot-size:${product.imageScale || 112}%;object-position:${product.imagePosition || "center"}" />
+            <img class="product-packshot" src="${product.images[0]}" alt="" loading="lazy" decoding="async" onerror="this.hidden=true;this.parentElement.classList.add('is-image-missing')" style="--packshot-size:${product.imageScale || 112}%;object-position:${product.imagePosition || "center"}" />
           </div>
         </a>
         <div class="product-card-body">
@@ -440,7 +440,11 @@ const Mouneh = (function () {
       const image = visual.querySelector(".product-packshot");
       if (image) {
         const markLoaded = () => visual.classList.add("has-real-image");
-        const markFailed = () => { image.hidden = true; visual.classList.remove("has-real-image"); };
+        const markFailed = () => {
+          image.hidden = true;
+          visual.classList.remove("has-real-image");
+          visual.classList.add("is-image-missing");
+        };
         image.addEventListener("load", markLoaded, { once: true });
         image.addEventListener("error", markFailed, { once: true });
         if (image.complete) image.naturalWidth ? markLoaded() : markFailed();
