@@ -464,10 +464,6 @@
     max-height:96%;
   }
 
-  .shop-page #shopProductGrid .image-fallback-label {
-    display:none;
-  }
-
   .shop-page #shopProductGrid .product-card-body {
     display:flex;
     min-height:0;
