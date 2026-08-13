@@ -126,7 +126,7 @@
   .homepage .hero-panel {
     min-height:0;
     grid-template-columns:1fr;
-    gap:40px;
+    gap:38px;
     padding:20px 0 0;
   }
   .homepage .hero-copy { max-width:none; padding:0; }
@@ -139,13 +139,13 @@
   .homepage .hero-copy h1 {
     max-width:390px;
     margin-top:20px;
-    font-size:clamp(3.375rem,14vw,3.625rem);
+    font-size:54px;
     line-height:.96;
-    letter-spacing:-.05em;
+    letter-spacing:-.025em;
   }
   .homepage .hero-copy>p:not(.hero-note) {
     max-width:390px;
-    margin:26px 0 28px;
+    margin:24px 0 26px;
     font-size:1rem;
     line-height:1.45;
   }
@@ -157,28 +157,43 @@
   }
   .homepage .hero-actions .button-primary {
     width:100%;
-    height:80px;
-    min-height:80px;
+    height:76px;
+    min-height:76px;
     padding:18px;
     text-align:center;
   }
-  .homepage .hero-actions .button-secondary {
+  .homepage .hero-actions>a.button.button-secondary {
     display:inline-flex;
-    width:fit-content;
-    min-height:0;
-    padding:0;
+    width:auto!important;
+    min-width:0!important;
+    min-height:0!important;
+    padding:0!important;
+    gap:10px;
     align-items:center;
-    border:0;
+    color:#20251e;
+    border:0!important;
+    border-bottom:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
     font-weight:700;
     letter-spacing:.1em;
+    text-decoration:none!important;
   }
-  .homepage .hero-actions .button-secondary::after {
+  .homepage .hero-actions>a.button.button-secondary::before { display:none!important; }
+  .homepage .hero-actions>a.button.button-secondary::after {
     content:"→";
-    position:static;
+    position:static!important;
+    inset:auto!important;
+    display:inline-block!important;
     width:auto;
     height:auto;
-    margin-left:8px;
-    background:none;
+    margin:0;
+    border:0!important;
+    border-radius:0!important;
+    background:none!important;
+    box-shadow:none!important;
+    transform:none!important;
   }
   .homepage .hero-note {
     gap:10px;
@@ -349,6 +364,10 @@
   .homepage .section-intro .category-grid,
   .homepage .section-featured .product-grid,
   .homepage .signature-card-grid { gap:12px 10px; }
+}
+
+@media (max-width: 375px) {
+  .homepage .hero-copy h1 { font-size:51px; }
 }
 
 @media (max-width: 349px) {
