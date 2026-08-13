@@ -230,7 +230,7 @@ const products = [
     name: "Apricot Jam",
     category: "honey-jams",
     subcategory: "Jam",
-    price: null,
+    price: 14,
     oldPrice: null,
     currency: "USD",
     images: ["assets/images/apricot-jam.png"],
@@ -239,8 +239,8 @@ const products = [
     featured: true,
     bestseller: false,
     newArrival: false,
-    stock: null,
-    sizes: ["Details coming soon"],
+    stock: 28,
+    sizes: ["220g"],
     shortDescription: "Manufacturer product details will be available soon.",
     description: "Product specifications have not yet been confirmed.",
     story: "More information about this product will be added when verified.",
@@ -249,7 +249,7 @@ const products = [
     storage: "Details coming soon",
     howToEnjoy: "Details coming soon",
     tags: ["jam", "pantry", "preserve"],
-    detailsPending: true
+    detailsPending: false
   },
   {
     id: "preserved-capers",
