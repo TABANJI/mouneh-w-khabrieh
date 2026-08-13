@@ -94,6 +94,7 @@
 
   .homepage-body .header-actions { gap:0; }
   .homepage-body .header-actions .account-button { display:none; }
+  .homepage-body .header-actions .mobile-menu-toggle { order:1; }
   .homepage-body .header-actions .icon-button {
     width:44px;
     height:44px;
