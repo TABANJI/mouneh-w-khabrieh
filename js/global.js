@@ -358,7 +358,6 @@ const Mouneh = (function () {
       <article class="${cardClasses.join(" ")}">
         <a class="product-image-link" href="product.html?product=${product.slug}">
           <div class="product-image" data-image-src="${product.images[0]}">
-            <span class="image-fallback-label">${product.name}</span>
             <img class="product-packshot" src="${product.images[0]}" alt="${product.name}" loading="lazy" decoding="async" style="--packshot-size:${product.imageScale || 112}%;object-position:${product.imagePosition || "center"}" />
           </div>
         </a>
