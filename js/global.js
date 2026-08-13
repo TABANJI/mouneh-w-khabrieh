@@ -237,35 +237,43 @@ const Mouneh = (function () {
           <p>Lebanese flavors, stories and traditions preserved for modern tables.</p>
         </div>
         <div class="footer-grid">
-          <div>
-            <span>Shop</span>
-            <a href="shop.html">Shop All</a>
-            <a href="shop.html?category=mouneh">Mouneh</a>
-            <a href="shop.html?category=olive-oil">Olive Oil</a>
-            <a href="shop.html?category=spices-herbs">Spices &amp; Herbs</a>
-            <a href="shop.html?category=nuts">Nuts</a>
+          <div class="footer-group">
+            <button class="footer-accordion-trigger" type="button" aria-expanded="false" aria-controls="footer-shop-panel"><span>Shop</span><i aria-hidden="true"></i></button>
+            <div class="footer-accordion-panel" id="footer-shop-panel" aria-hidden="true"><div class="footer-accordion-inner">
+              <a href="shop.html">Shop All</a>
+              <a href="shop.html?category=mouneh">Mouneh</a>
+              <a href="shop.html?category=olive-oil">Olive Oil</a>
+              <a href="shop.html?category=spices-herbs">Spices &amp; Herbs</a>
+              <a href="shop.html?category=nuts">Nuts</a>
+            </div></div>
           </div>
-          <div>
-            <span>Our Story</span>
-            <a href="about.html">About</a>
-            <a href="index.html#product-stories">Stories</a>
-            <a href="contact.html">Contact</a>
+          <div class="footer-group">
+            <button class="footer-accordion-trigger" type="button" aria-expanded="false" aria-controls="footer-story-panel"><span>Our Story</span><i aria-hidden="true"></i></button>
+            <div class="footer-accordion-panel" id="footer-story-panel" aria-hidden="true"><div class="footer-accordion-inner">
+              <a href="about.html">About</a>
+              <a href="index.html#product-stories">Stories</a>
+              <a href="contact.html">Contact</a>
+            </div></div>
           </div>
-          <div>
-            <span>Customer Care</span>
-            <a href="#">FAQ</a>
-            <a href="#">Delivery</a>
-            <a href="#">Returns</a>
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
+          <div class="footer-group">
+            <button class="footer-accordion-trigger" type="button" aria-expanded="false" aria-controls="footer-care-panel"><span>Customer Care</span><i aria-hidden="true"></i></button>
+            <div class="footer-accordion-panel" id="footer-care-panel" aria-hidden="true"><div class="footer-accordion-inner">
+              <a href="#">FAQ</a>
+              <a href="#">Delivery</a>
+              <a href="#">Returns</a>
+              <a href="#">Privacy</a>
+              <a href="#">Terms</a>
+            </div></div>
           </div>
-          <div>
-            <span>Contact</span>
-            <a href="mailto:mounehwkhabrieh@gmail.com">mounehwkhabrieh@<wbr>gmail.com</a>
-            <a href="#">Instagram</a>
-            <a href="#">TikTok</a>
-            <a href="#">Facebook</a>
-            <a href="#">WhatsApp</a>
+          <div class="footer-group">
+            <button class="footer-accordion-trigger" type="button" aria-expanded="false" aria-controls="footer-contact-panel"><span>Contact</span><i aria-hidden="true"></i></button>
+            <div class="footer-accordion-panel" id="footer-contact-panel" aria-hidden="true"><div class="footer-accordion-inner">
+              <a href="mailto:mounehwkhabrieh@gmail.com">mounehwkhabrieh@<wbr>gmail.com</a>
+              <a href="#">Instagram</a>
+              <a href="#">TikTok</a>
+              <a href="#">Facebook</a>
+              <a href="#">WhatsApp</a>
+            </div></div>
           </div>
         </div>
         <div class="footer-bottom">
@@ -276,6 +284,42 @@ const Mouneh = (function () {
     `;
     const footerContainer = document.getElementById("site-footer");
     if (footerContainer) footerContainer.innerHTML = footer;
+  }
+
+  function initializeFooterAccordion() {
+    const triggers = Array.from(document.querySelectorAll(".footer-accordion-trigger"));
+    if (!triggers.length) return;
+    const mobileQuery = window.matchMedia("(max-width: 768px)");
+
+    const setOpen = (trigger, open) => {
+      const panel = document.getElementById(trigger.getAttribute("aria-controls"));
+      trigger.setAttribute("aria-expanded", String(open));
+      if (panel) {
+        panel.setAttribute("aria-hidden", String(!open));
+        panel.toggleAttribute("inert", !open);
+      }
+    };
+
+    const collapseAll = (except) => {
+      triggers.forEach((trigger) => {
+        if (trigger !== except) setOpen(trigger, false);
+      });
+    };
+
+    triggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        if (!mobileQuery.matches) return;
+        const willOpen = trigger.getAttribute("aria-expanded") !== "true";
+        collapseAll(trigger);
+        setOpen(trigger, willOpen);
+      });
+    });
+
+    const syncMode = () => {
+      triggers.forEach((trigger) => setOpen(trigger, !mobileQuery.matches));
+    };
+    mobileQuery.addEventListener?.("change", syncMode);
+    syncMode();
   }
 
   function openOverlay(element) {
@@ -482,6 +526,7 @@ const Mouneh = (function () {
     renderFooter();
     updateHeaderCounts();
     initHeaderInteractions();
+    initializeFooterAccordion();
     initializeSearchOverlay();
     initializeNewsletterForm();
     const categoryGrid = document.getElementById("categoryGrid");
