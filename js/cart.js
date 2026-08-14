@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const cartItemsContainer = document.getElementById("cartItems");
+  const cartPage = document.querySelector(".cart-page");
   const cartSubtotal = document.getElementById("cartSubtotal");
   const cartEstimatedTotal = document.getElementById("cartEstimatedTotal");
   const cartSummary = document.querySelector(".cart-summary");
@@ -18,8 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const items = getCartItems();
     if (!cartItemsContainer) return;
     if (items.length === 0) {
+      cartPage?.classList.add("is-cart-empty");
       cartItemsContainer.innerHTML = `<section class="cart-empty-state">
-        <svg class="cart-empty-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M15 24h34l-4 26H19l-4-26Z"></path><path d="M23 24c0-6 3.7-10 9-10s9 4 9 10"></path><path d="M13 24h38"></path></svg>
+        <svg class="ui-icon cart-empty-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 13H6L5 8Z"></path><path d="M9 9V6a3 3 0 0 1 6 0v3"></path></svg>
         <h2>Your cart is empty</h2>
         <p>Add something special from our pantry<br />and return here when you're ready.</p>
         <a class="button button-primary" href="shop.html">Return to Shop</a>
@@ -31,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setCheckoutAvailability(0);
       return;
     }
+    cartPage?.classList.remove("is-cart-empty");
     if (cartSummary) cartSummary.hidden = false;
     if (cartStickyCheckout) cartStickyCheckout.hidden = false;
     cartItemsContainer.innerHTML = items

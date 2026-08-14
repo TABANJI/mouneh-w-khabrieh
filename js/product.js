@@ -25,6 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const wishlistButton = document.getElementById("wishlistButton");
   const shareButton = document.getElementById("shareButton");
   const relatedGrid = document.getElementById("relatedProductGrid");
+  const recentlyViewedSection = document.getElementById("recentlyViewedSection");
+  const recentlyViewedGrid = document.getElementById("recentlyViewedGrid");
 
   if (!product) {
     const main = document.querySelector("main");
@@ -41,7 +43,10 @@ document.addEventListener("DOMContentLoaded", () => {
   if (categoryEl) categoryEl.textContent = categoryLabel;
   if (originEl) originEl.textContent = product.origin;
   if (nameEl) nameEl.textContent = product.name;
-  if (taglineEl) taglineEl.textContent = product.shortDescription;
+  const productTagline = !/(manufacturer product details|details coming soon|not yet been confirmed)/i.test(product.shortDescription || "")
+    ? product.shortDescription
+    : `${product.name}, selected for a refined Lebanese pantry.`;
+  if (taglineEl) taglineEl.textContent = productTagline;
   if (shortEl) shortEl.textContent = product.description;
   if (storyEl) storyEl.textContent = product.story;
   if (ingredientsEl) ingredientsEl.textContent = product.ingredients;
@@ -145,6 +150,16 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   updateWishlistButton();
+  const recentlyViewed = Mouneh.getRecentlyViewed()
+    .filter((productId) => productId !== product.id)
+    .map((productId) => products.find((item) => item.id === productId))
+    .filter((item) => item && item.images?.[0] && Number.isFinite(item.price))
+    .slice(0, 4);
+
+  if (recentlyViewedSection && recentlyViewedGrid && recentlyViewed.length) {
+    recentlyViewedSection.hidden = false;
+    Mouneh.renderSectionProducts(recentlyViewedGrid, recentlyViewed);
+  }
   Mouneh.addRecentlyViewed(product.id);
 
   if (relatedGrid) {
@@ -154,8 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
         item.id !== product.id &&
         item.images?.[0] &&
         item.sizes?.length &&
-        Number.isFinite(item.price) &&
-        item.stock > 0
+        Number.isFinite(item.price)
       )
       .slice(0, 4);
     if (related.length) {

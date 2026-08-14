@@ -186,10 +186,49 @@
   display: block;
 }
 
+.wishlist-empty-icon { display:none; }
+
 @media (max-width:768px) {
   .wishlist-page .wishlist-empty {
-    padding:44px 24px;
+    padding:30px 24px;
+    border:1px solid rgba(79,70,54,.09);
+    border-radius:24px;
+    background:#fffdf9;
+    box-shadow:0 10px 28px rgba(45,43,35,.05);
   }
+
+  .wishlist-page .wishlist-empty-icon {
+    display:block;
+    width:52px;
+    height:52px;
+    margin:0 auto 26px;
+    color:var(--olive);
+  }
+
+  .wishlist-page .wishlist-empty h2 {
+    margin:0 0 16px;
+    font:400 1.75rem/1.1 Georgia,serif;
+  }
+
+  .wishlist-page .wishlist-empty p {
+    max-width:290px;
+    margin:0 auto 30px;
+    color:var(--muted);
+    font-size:.9rem;
+    line-height:1.5;
+  }
+
+  .wishlist-page .wishlist-empty .button {
+    min-height:48px;
+    padding:13px 24px;
+    border-radius:24px;
+    background:var(--olive);
+  }
+
+  .wishlist-page.is-wishlist-empty .wishlist-grid { display:none; }
+  .wishlist-page.is-wishlist-empty .wishlist-empty { margin-top:16px; }
+  .wishlist-page.is-wishlist-empty.page-shell { padding-bottom:32px; }
+  .wishlist-page.is-wishlist-empty .shop-hero { padding-bottom:20px; }
 }
 
 @media (max-width: 980px) {

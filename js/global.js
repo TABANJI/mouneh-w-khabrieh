@@ -111,6 +111,10 @@ const Mouneh = (function () {
     saveStoredData(STORAGE_KEYS.recentlyViewed, updated);
   }
 
+  function getRecentlyViewed() {
+    return getStoredData(STORAGE_KEYS.recentlyViewed);
+  }
+
   function getQueryParam(name) {
     const params = new URLSearchParams(window.location.search);
     return params.get(name);
@@ -404,14 +408,15 @@ const Mouneh = (function () {
 
   function renderProductCard(product, options = {}) {
     const isWishlisted = isInWishlist(product.id);
-    const isCatalogPreview = Boolean(product.catalogPreview);
     const cardClasses = ["product-card"];
     if (product.badge) cardClasses.push("has-badge");
     if (product.detailsPending) cardClasses.push("details-pending");
     const minimalPending = options.minimalPending && product.detailsPending;
     const imageClasses = ["product-packshot"];
-    const descriptionShort = product.descriptionShort || product.shortDescription ||
-      (!product.description?.toLowerCase().includes("not yet been confirmed") ? product.description : "") ||
+    const suppliedCardDescription = product.descriptionShort || product.shortDescription || "";
+    const descriptionShort = !/(manufacturer product details|details coming soon|not yet been confirmed)/i.test(suppliedCardDescription)
+      ? suppliedCardDescription
+      : (!product.description?.toLowerCase().includes("not yet been confirmed") ? product.description : "") ||
       `${product.name}, selected for a refined Lebanese pantry.`;
     if (bottleProductIds.has(product.id)) imageClasses.push("product-image--bottle");
     return `
@@ -428,14 +433,14 @@ const Mouneh = (function () {
           </div>
           <a class="product-title" href="product.html?product=${product.slug}">${product.name}</a>
           ${descriptionShort ? `<p class="product-description">${descriptionShort}</p>` : ""}
-          ${minimalPending || isCatalogPreview || !product.sizes?.length ? "" : `<span class="product-size">${product.sizes.join(" · ")}</span>`}
-          ${minimalPending || isCatalogPreview || !Number.isFinite(product.price) ? "" : `<div class="product-line">
+          ${minimalPending || !product.sizes?.length ? "" : `<span class="product-size">${product.sizes.join(" · ")}</span>`}
+          ${minimalPending || !Number.isFinite(product.price) ? "" : `<div class="product-line">
             <span class="product-price">${product.detailsPending ? "Details coming soon" : formatPrice(product.price)}</span>
             ${product.oldPrice ? `<span class="product-old-price">${formatPrice(product.oldPrice)}</span>` : ""}
           </div>`}
           <div class="product-actions">
             <button class="wishlist-button ${isWishlisted ? "is-saved" : ""}" data-product-id="${product.id}" type="button" aria-label="${isWishlisted ? "Remove from" : "Add to"} wishlist">♡</button>
-            ${minimalPending || isCatalogPreview || !Number.isFinite(product.price) ? "" : `<button class="button button-sm add-cart-button" data-product-id="${product.id}" type="button" ${product.detailsPending ? "disabled" : ""}>${product.detailsPending ? "Coming Soon" : "Add to Cart"}</button>`}
+            ${minimalPending || !Number.isFinite(product.price) ? "" : `<button class="button button-sm add-cart-button" data-product-id="${product.id}" type="button" ${product.detailsPending ? "disabled" : ""}>${product.detailsPending ? "Coming Soon" : "Add to Cart"}</button>`}
           </div>
         </div>
       </article>
@@ -474,7 +479,7 @@ const Mouneh = (function () {
       button.addEventListener("click", () => {
         const productId = button.dataset.productId;
         const product = findProduct(productId);
-        if (product) addToCart(product.id, product.sizes[0], 1);
+        if (product) addToCart(product.id, product.sizes?.[0] || "Standard", 1);
       });
     });
     const wishlistButtons = context.querySelectorAll(".wishlist-button");
@@ -575,6 +580,7 @@ const Mouneh = (function () {
     getCartQuantity,
     getWishlist,
     addRecentlyViewed,
+    getRecentlyViewed,
     state
   };
 })();
