@@ -13,8 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const items = getCartItems();
     if (!cartItemsContainer) return;
     if (items.length === 0) {
-      cartItemsContainer.innerHTML = `<section class='section'><h2>Your cart is empty</h2><p>Add premium pantry products to begin.</p><a class='button button-secondary' href='shop.html'>Browse Shop</a></section>`;
+      cartItemsContainer.innerHTML = `<section class='section cart-empty-state'><h2>Your cart is empty</h2><p>Add premium pantry products to begin.</p><a class='button button-secondary' href='shop.html'>Browse Shop</a></section>`;
       if (cartSubtotal) cartSubtotal.textContent = "$0.00";
+      setCheckoutAvailability(0);
       return;
     }
     cartItemsContainer.innerHTML = items
@@ -54,6 +55,14 @@ document.addEventListener("DOMContentLoaded", () => {
       return product ? sum + product.price * item.quantity : sum;
     }, 0);
     if (cartSubtotal) cartSubtotal.textContent = Mouneh.formatPrice(total);
+    setCheckoutAvailability(total);
+  }
+
+  function setCheckoutAvailability(total) {
+    if (!checkoutButton) return;
+    const enabled = Number.isFinite(total) && total > 0;
+    checkoutButton.disabled = !enabled;
+    checkoutButton.setAttribute("aria-disabled", String(!enabled));
   }
 
   function saveCart(items) {
@@ -115,13 +124,14 @@ document.addEventListener("DOMContentLoaded", () => {
         Mouneh.toast("Enter a coupon code to apply.");
         return;
       }
-      Mouneh.toast("Coupon field is a demo placeholder.");
+      Mouneh.toast("This coupon code could not be applied.");
     });
   }
 
   if (checkoutButton) {
     checkoutButton.addEventListener("click", () => {
-      Mouneh.toast("Checkout is a frontend preview. Order handling is not live.");
+      if (checkoutButton.disabled) return;
+      Mouneh.toast("Checkout is temporarily unavailable. Please try again shortly.");
     });
   }
 
