@@ -449,6 +449,8 @@
     height:100%;
     max-width:76%;
     max-height:84%;
+    transform:scale(.8);
+    transform-origin:center center;
   }
 
   .shop-page #shopProductGrid .product-image[data-image-src$="thyme-labneh-rounds.jpg"] .product-packshot,
