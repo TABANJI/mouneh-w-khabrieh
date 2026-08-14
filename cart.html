@@ -20,7 +20,7 @@
     <section class="cart-hero">
       <div>
         <span>Your cart</span>
-        <h1>Your pantry,<br class="cart-title-break" />ready when you are.</h1>
+        <h1>Your pantry,<br class="cart-title-break" /> ready when you are.</h1>
         <p>Adjust quantities, save favorites for later and prepare your order with confidence.</p>
       </div>
     </section>
@@ -36,7 +36,11 @@
           </div>
           <div class="summary-row muted">
             <span>Estimated delivery</span>
-            <span>2–4 business days</span>
+            <span>Calculated at checkout</span>
+          </div>
+          <div class="summary-row summary-total">
+            <strong>Estimated total</strong>
+            <strong id="cartEstimatedTotal">$0.00</strong>
           </div>
           <div class="coupon-group">
             <label for="couponCode">Coupon code</label>
@@ -49,6 +53,10 @@
       </aside>
     </section>
   </main>
+  <div class="cart-sticky-checkout" id="cartStickyCheckout" hidden>
+    <div><span>Total</span><strong id="cartStickyTotal">$0.00</strong></div>
+    <button class="button button-primary" id="stickyCheckoutButton" type="button">Checkout</button>
+  </div>
   <div id="site-footer"></div>
   <div id="site-overlays"></div>
   <script src="data/products.js"></script>

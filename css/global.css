@@ -749,6 +749,13 @@ body.overlay-open {
   font-weight: 700;
 }
 
+.product-description {
+  margin: 0;
+  color: var(--muted);
+  font-size: .85rem;
+  line-height: 1.45;
+}
+
 .product-copy {
   color: var(--muted);
   margin: 0;

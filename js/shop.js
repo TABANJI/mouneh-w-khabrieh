@@ -225,7 +225,12 @@ document.addEventListener("DOMContentLoaded", () => {
   async function initializeCatalogProducts() {
     const checks = await Promise.all(products.map(async (product) => ({
       product,
-      valid:await imageLoads(product.images?.[0] || "")
+      valid:
+        await imageLoads(product.images?.[0] || "") &&
+        Number.isFinite(product.price) &&
+        product.sizes?.length > 0 &&
+        product.stock > 0 &&
+        !product.detailsPending
     })));
     catalogProducts = checks.filter((entry) => entry.valid).map((entry) => entry.product);
     renderProducts();

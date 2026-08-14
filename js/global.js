@@ -410,6 +410,9 @@ const Mouneh = (function () {
     if (product.detailsPending) cardClasses.push("details-pending");
     const minimalPending = options.minimalPending && product.detailsPending;
     const imageClasses = ["product-packshot"];
+    const descriptionShort = product.descriptionShort || product.shortDescription ||
+      (!product.description?.toLowerCase().includes("not yet been confirmed") ? product.description : "") ||
+      `${product.name}, selected for a refined Lebanese pantry.`;
     if (bottleProductIds.has(product.id)) imageClasses.push("product-image--bottle");
     return `
       <article class="${cardClasses.join(" ")}">
@@ -424,6 +427,7 @@ const Mouneh = (function () {
             ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ""}
           </div>
           <a class="product-title" href="product.html?product=${product.slug}">${product.name}</a>
+          ${descriptionShort ? `<p class="product-description">${descriptionShort}</p>` : ""}
           ${minimalPending || isCatalogPreview || !product.sizes?.length ? "" : `<span class="product-size">${product.sizes.join(" · ")}</span>`}
           ${minimalPending || isCatalogPreview || !Number.isFinite(product.price) ? "" : `<div class="product-line">
             <span class="product-price">${product.detailsPending ? "Details coming soon" : formatPrice(product.price)}</span>
@@ -458,6 +462,7 @@ const Mouneh = (function () {
           image.style.display = "none";
           visual.classList.remove("has-real-image");
           visual.classList.add("is-image-missing");
+          image.closest(".product-card")?.remove();
         };
         image.addEventListener("load", markLoaded, { once: true });
         image.addEventListener("error", markFailed, { once: true });

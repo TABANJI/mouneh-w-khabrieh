@@ -148,7 +148,16 @@ document.addEventListener("DOMContentLoaded", () => {
   Mouneh.addRecentlyViewed(product.id);
 
   if (relatedGrid) {
-    const related = products.filter((item) => item.category === product.category && item.id !== product.id).slice(0, 4);
+    const related = products
+      .filter((item) =>
+        item.category === product.category &&
+        item.id !== product.id &&
+        item.images?.[0] &&
+        item.sizes?.length &&
+        Number.isFinite(item.price) &&
+        item.stock > 0
+      )
+      .slice(0, 4);
     if (related.length) {
       relatedGrid.innerHTML = related.map((item) => Mouneh.renderProductCard(item)).join("");
       Mouneh.attachProductCardEvents(relatedGrid);

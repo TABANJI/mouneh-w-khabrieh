@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "pickled-cucumbers", "cornichons"
   ]
     .map((id) => products.find((product) => product.id === id)).filter(Boolean);
-  if (featuredContainer) Mouneh.renderSectionProducts(featuredContainer, featured, { minimalPending: true });
+  if (featuredContainer) Mouneh.renderSectionProducts(featuredContainer, featured);
 
   const initializeProductCarousel = (container, previousButton, nextButton) => {
     if (!container || !previousButton || !nextButton) return;

@@ -508,7 +508,7 @@
     font-size:.72rem;
   }
 
-  #shopProductGrid {
+  :is(.product-card-collection.product-card-collection.product-card-collection) {
     grid-template-columns:repeat(2,minmax(0,1fr));
     column-gap:8px;
     row-gap:7px;
@@ -524,13 +524,14 @@
     margin-inline:8px;
   }
 
-  .shop-page #shopProductGrid .product-card {
+  :is(.product-card-collection.product-card-collection.product-card-collection) .product-card {
     position:relative;
     display:flex;
     width:100%;
     min-width:0;
-    min-height:0;
-    max-height:340px;
+    min-height:360px;
+    height:100%;
+    max-height:none;
     flex-direction:column;
     overflow:hidden;
     border:1px solid rgba(79,70,54,.1);
@@ -539,14 +540,14 @@
     box-shadow:0 8px 22px rgba(45,43,35,.055);
   }
 
-  .shop-page #shopProductGrid .product-image-link {
+  :is(.product-card-collection.product-card-collection.product-card-collection) .product-image-link {
     display:block;
     flex:0 0 auto;
     overflow:hidden;
     background:#fff;
   }
 
-  .shop-page #shopProductGrid .product-image {
+  :is(.product-card-collection.product-card-collection.product-card-collection) .product-image {
     width:100%;
     height:clamp(130px,34vw,145px);
     min-height:0;
@@ -559,15 +560,15 @@
     box-shadow:inset 0 -1px rgba(185,166,137,.16);
   }
 
-  .shop-page #shopProductGrid .product-image.is-image-missing {
+  :is(.product-card-collection.product-card-collection.product-card-collection) .product-image.is-image-missing {
     background:#fffdf9;
   }
 
-  .shop-page #shopProductGrid .product-image.is-image-missing .product-packshot {
+  :is(.product-card-collection.product-card-collection.product-card-collection) .product-image.is-image-missing .product-packshot {
     display:none;
   }
 
-  .shop-page #shopProductGrid .product-packshot {
+  :is(.product-card-collection.product-card-collection.product-card-collection) .product-packshot {
     width:100%;
     height:100%;
     max-width:78%;
@@ -582,7 +583,7 @@
     filter:none;
   }
 
-  .shop-page #shopProductGrid .product-packshot.product-image--bottle {
+  :is(.product-card-collection.product-card-collection.product-card-collection) .product-packshot.product-image--bottle {
     width:100%;
     height:100%;
     max-width:none;
@@ -595,41 +596,41 @@
     transform:none;
   }
 
-  .shop-page #shopProductGrid .product-image img:not([src]),
-  .shop-page #shopProductGrid .product-image img[src=""] {
+  :is(.product-card-collection.product-card-collection.product-card-collection) .product-image img:not([src]),
+  :is(.product-card-collection.product-card-collection.product-card-collection) .product-image img[src=""] {
     display:none;
   }
 
-  .shop-page #shopProductGrid .product-image[data-image-src$="thyme-labneh-rounds.jpg"] .product-packshot,
-  .shop-page #shopProductGrid .product-image[data-image-src$="berry-jam.png"] .product-packshot,
-  .shop-page #shopProductGrid .product-image[data-image-src$="cornichons.png"] .product-packshot {
+  :is(.product-card-collection.product-card-collection.product-card-collection) .product-image[data-image-src$="thyme-labneh-rounds.jpg"] .product-packshot,
+  :is(.product-card-collection.product-card-collection.product-card-collection) .product-image[data-image-src$="berry-jam.png"] .product-packshot,
+  :is(.product-card-collection.product-card-collection.product-card-collection) .product-image[data-image-src$="cornichons.png"] .product-packshot {
     width:90%;
     height:92%;
     max-width:90%;
     max-height:92%;
   }
 
-  .shop-page #shopProductGrid .product-image[data-image-src$="spicy-labneh-rounds.jpg"] .product-packshot,
-  .shop-page #shopProductGrid .product-image[data-image-src$="pickled-cucumbers.jpg"] .product-packshot {
+  :is(.product-card-collection.product-card-collection.product-card-collection) .product-image[data-image-src$="spicy-labneh-rounds.jpg"] .product-packshot,
+  :is(.product-card-collection.product-card-collection.product-card-collection) .product-image[data-image-src$="pickled-cucumbers.jpg"] .product-packshot {
     width:93%;
     height:94%;
     max-width:93%;
     max-height:94%;
   }
 
-  .shop-page #shopProductGrid .product-image[data-image-src$="olives-stuffed-with-chili.jpg"] .product-packshot {
+  :is(.product-card-collection.product-card-collection.product-card-collection) .product-image[data-image-src$="olives-stuffed-with-chili.jpg"] .product-packshot {
     width:96%;
     height:96%;
     max-width:96%;
     max-height:96%;
   }
 
-  .shop-page #shopProductGrid .product-image .product-packshot {
+  :is(.product-card-collection.product-card-collection.product-card-collection) .product-image .product-packshot {
     transform:scale(1.04);
     transform-origin:center center;
   }
 
-  .shop-page #shopProductGrid .product-card-body {
+  :is(.product-card-collection.product-card-collection.product-card-collection) .product-card-body {
     display:flex;
     min-height:0;
     padding:12px 12px 10px;
@@ -638,14 +639,14 @@
     flex-direction:column;
   }
 
-  .shop-page #shopProductGrid .product-card-meta {
+  :is(.product-card-collection.product-card-collection.product-card-collection) .product-card-meta {
     min-height:14px;
     gap:4px;
     margin-bottom:4px;
     align-items:center;
   }
 
-  .shop-page #shopProductGrid .product-category {
+  :is(.product-card-collection.product-card-collection.product-card-collection) .product-category {
     min-width:0;
     overflow:hidden;
     font-size:.59rem;
@@ -655,7 +656,7 @@
     white-space:nowrap;
   }
 
-  .shop-page #shopProductGrid .product-badge {
+  :is(.product-card-collection.product-card-collection.product-card-collection) .product-badge {
     position:absolute;
     top:10px;
     left:10px;
@@ -668,7 +669,7 @@
     letter-spacing:.06em;
   }
 
-  .shop-page #shopProductGrid .product-title {
+  :is(.product-card-collection.product-card-collection.product-card-collection) .product-title {
     display:-webkit-box;
     min-height:2.14em;
     max-height:2.14em;
@@ -679,13 +680,26 @@
     -webkit-line-clamp:2;
   }
 
-  .shop-page #shopProductGrid .product-size {
+  :is(.product-card-collection.product-card-collection.product-card-collection) .product-description {
+    display:-webkit-box;
+    min-height:2.7em;
+    max-height:2.7em;
+    margin:0 0 6px;
+    overflow:hidden;
+    color:#756f63;
+    font-size:.69rem;
+    line-height:1.35;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+  }
+
+  :is(.product-card-collection.product-card-collection.product-card-collection) .product-size {
     margin-bottom:3px;
     font-size:.65rem;
     line-height:1.2;
   }
 
-  .shop-page #shopProductGrid .product-line {
+  :is(.product-card-collection.product-card-collection.product-card-collection) .product-line {
     display:flex;
     gap:6px;
     align-items:baseline;
@@ -693,16 +707,16 @@
     margin:0 0 2px;
   }
 
-  .shop-page #shopProductGrid .product-price {
+  :is(.product-card-collection.product-card-collection.product-card-collection) .product-price {
     font-size:.94rem;
     line-height:1.2;
   }
 
-  .shop-page #shopProductGrid .product-old-price {
+  :is(.product-card-collection.product-card-collection.product-card-collection) .product-old-price {
     font-size:.72rem;
   }
 
-  .shop-page #shopProductGrid .product-actions {
+  :is(.product-card-collection.product-card-collection.product-card-collection) .product-actions {
     width:100%;
     min-height:40px;
     gap:0;
@@ -711,7 +725,7 @@
     align-items:center;
   }
 
-  .shop-page #shopProductGrid .wishlist-button {
+  :is(.product-card-collection.product-card-collection.product-card-collection) .wishlist-button {
     position:absolute;
     top:10px;
     right:10px;
@@ -724,7 +738,7 @@
     font-size:1.05rem;
   }
 
-  .shop-page #shopProductGrid .add-cart-button {
+  :is(.product-card-collection.product-card-collection.product-card-collection) .add-cart-button {
     width:100%;
     height:40px;
     min-height:40px;

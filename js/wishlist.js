@@ -13,7 +13,14 @@ document.addEventListener("DOMContentLoaded", () => {
     wishlistEmpty?.classList.remove("visible");
     const items = wishlist
       .map((productId) => products.find((product) => product.id === productId))
-      .filter(Boolean);
+      .filter((product) =>
+        product &&
+        product.images?.[0] &&
+        Number.isFinite(product.price) &&
+        product.sizes?.length > 0 &&
+        product.stock > 0 &&
+        !product.detailsPending
+      );
     wishlistGrid.innerHTML = items.map((product) => Mouneh.renderProductCard(product)).join("");
     Mouneh.attachProductCardEvents(wishlistGrid);
   }
