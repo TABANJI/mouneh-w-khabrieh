@@ -443,14 +443,22 @@
     transform:none;
   }
 
-  .shop-page #shopProductGrid .product-image[data-image-src$="Orange-Blossom-Water.png"] .product-packshot,
-  .shop-page #shopProductGrid .product-image[data-image-src$="Rose-Water.png"] .product-packshot {
+  .shop-page #shopProductGrid .product-packshot.product-image--bottle {
     width:100%;
     height:100%;
-    max-width:76%;
-    max-height:84%;
-    transform:scale(.8);
-    transform-origin:center center;
+    max-width:none;
+    max-height:none;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    object-fit:contain;
+    object-position:center center;
+    transform:none;
+  }
+
+  .shop-page #shopProductGrid .product-image img:not([src]),
+  .shop-page #shopProductGrid .product-image img[src=""] {
+    display:none;
   }
 
   .shop-page #shopProductGrid .product-image[data-image-src$="thyme-labneh-rounds.jpg"] .product-packshot,

@@ -12,6 +12,16 @@ const Mouneh = (function () {
     language: "en"
   };
 
+  const bottleProductIds = new Set([
+    "pomegranate-molasses",
+    "orange-blossom-water",
+    "rose-water",
+    "apple-vinegar",
+    "rose-syrup",
+    "sage-water",
+    "spicy-olive-oil"
+  ]);
+
   function formatPrice(value) {
     return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(value);
   }
@@ -399,11 +409,13 @@ const Mouneh = (function () {
     if (product.badge) cardClasses.push("has-badge");
     if (product.detailsPending) cardClasses.push("details-pending");
     const minimalPending = options.minimalPending && product.detailsPending;
+    const imageClasses = ["product-packshot"];
+    if (bottleProductIds.has(product.id)) imageClasses.push("product-image--bottle");
     return `
       <article class="${cardClasses.join(" ")}">
         <a class="product-image-link" href="product.html?product=${product.slug}" aria-label="View ${product.name}">
           <div class="product-image" data-image-src="${product.images[0]}">
-            <img class="product-packshot" src="${product.images[0]}" alt="" loading="lazy" decoding="async" onerror="this.hidden=true;this.parentElement.classList.add('is-image-missing')" style="--packshot-size:${product.imageScale || 112}%;object-position:${product.imagePosition || "center"}" />
+            <img class="${imageClasses.join(" ")}" src="${product.images[0]}" alt="" loading="lazy" decoding="async" onerror="this.style.display='none';this.parentElement.classList.add('is-image-missing')" style="--packshot-size:${product.imageScale || 112}%;object-position:${product.imagePosition || "center"}" />
           </div>
         </a>
         <div class="product-card-body">
@@ -443,6 +455,7 @@ const Mouneh = (function () {
         const markLoaded = () => visual.classList.add("has-real-image");
         const markFailed = () => {
           image.hidden = true;
+          image.style.display = "none";
           visual.classList.remove("has-real-image");
           visual.classList.add("is-image-missing");
         };
