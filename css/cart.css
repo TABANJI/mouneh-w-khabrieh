@@ -152,10 +152,10 @@
 
   .cart-layout {
     gap:22px;
-    margin-top:28px;
+    margin-top:20px;
   }
 
   .cart-empty-state {
-    padding:38px 0 34px;
+    padding:30px 0 26px;
   }
 }
