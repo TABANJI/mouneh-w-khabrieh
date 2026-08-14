@@ -58,7 +58,7 @@ const products = [
     price: 15,
     oldPrice: 18,
     currency: "USD",
-    images: ["assets/images/Pomegranate-Molasses.jpg"],
+    images: ["assets/images/Pomegranate-Molasses.png"],
     badge: "On Sale",
     featured: true,
     bestseller: false,
@@ -445,7 +445,7 @@ const products = [
   },
   {
     id:"rose-syrup", slug:"rose-syrup", name:"Rose Syrup", category:"molasses-syrups",
-    images:["assets/images/rose-syrup.jpg"], price:null, oldPrice:null, stock:null, sizes:[], tags:["syrup"], catalogPreview:true
+    images:["assets/images/rose-syrup.png"], price:null, oldPrice:null, stock:null, sizes:[], tags:["syrup"], catalogPreview:true
   },
   {
     id:"sage-water", slug:"sage-water", name:"Sage Water", category:"spices-herbs",
@@ -477,7 +477,7 @@ const products = [
   },
   {
     id:"spicy-olive-oil", slug:"spicy-olive-oil", name:"Spicy Olive Oil", category:"olive-oil",
-    images:["assets/images/Spicy-Olive-Oil.jpg"], price:null, oldPrice:null, stock:null, sizes:[], tags:["olive"], catalogPreview:true
+    images:["assets/images/Spicy-Olive-Oil.png"], price:null, oldPrice:null, stock:null, sizes:[], tags:["olive"], catalogPreview:true
   },
   {
     id:"thyme-mix", slug:"thyme-mix", name:"Thyme Mix", category:"spices-herbs",

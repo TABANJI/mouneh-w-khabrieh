@@ -441,6 +441,8 @@
     object-fit:contain;
     object-position:center center;
     transform:none;
+    background:transparent;
+    filter:none;
   }
 
   .shop-page #shopProductGrid .product-packshot.product-image--bottle {
