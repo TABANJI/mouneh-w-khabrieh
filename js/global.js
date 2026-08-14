@@ -141,10 +141,12 @@ const Mouneh = (function () {
   }
 
   function updateHeaderCounts() {
-    const cartCount = document.querySelector("[data-cart-count]");
-    const wishCount = document.querySelector("[data-wishlist-count]");
-    if (cartCount) cartCount.textContent = getCartQuantity();
-    if (wishCount) wishCount.textContent = state.wishlist.length;
+    document.querySelectorAll("[data-cart-count]").forEach((count) => {
+      count.textContent = getCartQuantity();
+    });
+    document.querySelectorAll("[data-wishlist-count]").forEach((count) => {
+      count.textContent = state.wishlist.length;
+    });
   }
 
   function setHtmlDirection(direction) {
@@ -162,6 +164,13 @@ const Mouneh = (function () {
       };
       return `<svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${paths[name]}</svg>`;
     };
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    const drawerLink = (number, label, href, activePage = href) => `
+      <a href="${href}"${currentPage === activePage ? ' class="is-active" aria-current="page"' : ""}>
+        <span class="mobile-nav-index">${number}</span>
+        <span class="mobile-nav-label">${label}</span>
+        <span class="mobile-nav-marker" aria-hidden="true"></span>
+      </a>`;
     const nav = `
       <header class="site-header" role="banner">
         <div class="header-inner">
@@ -186,7 +195,7 @@ const Mouneh = (function () {
             <button class="icon-button account-button" id="accountToggle" aria-label="Account">
               ${icon("user")}
             </button>
-            <button class="icon-button mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open menu">
+            <button class="icon-button mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open menu" aria-controls="mobileMenuOverlay" aria-expanded="false">
               ${icon("menu")}
             </button>
             <a class="icon-button" href="wishlist.html" aria-label="Wishlist">
@@ -205,34 +214,46 @@ const Mouneh = (function () {
         </div>
       </header>
       <div class="mobile-menu-overlay" id="mobileMenuOverlay" aria-hidden="true">
-        <div class="mobile-menu-panel">
-          <button class="nav-close" id="mobileMenuClose" aria-label="Close menu">×</button>
-          <div class="mobile-menu-brand">
-            <strong>Mouneh w Khabrieh</strong>
-            <p>Premium Lebanese pantry essentials.</p>
+        <div class="mobile-menu-panel" role="dialog" aria-modal="true" aria-labelledby="mobileMenuTitle" tabindex="-1">
+          <div class="mobile-menu-top">
+            <div class="mobile-menu-brand">
+              <strong id="mobileMenuTitle">Mouneh w Khabrieh</strong>
+              <span class="mobile-menu-kicker">Lebanese Artisanal Pantry</span>
+              <span class="mobile-menu-ar" dir="rtl" lang="ar">&#1605;&#1608;&#1606;&#1577; &#1608;&#1582;&#1576;&#1585;&#1610;&#1577;</span>
+            </div>
+            <button class="nav-close" id="mobileMenuClose" type="button" aria-label="Close menu">&times;</button>
           </div>
           <nav class="mobile-nav" aria-label="Mobile primary navigation">
-            <a href="index.html">Home</a>
-            <a href="shop.html">Shop</a>
-            <a href="about.html">Our Story</a>
-            <a href="shop.html">Collections</a>
-            <a href="contact.html">Contact</a>
+            ${drawerLink("01", "Home", "index.html")}
+            ${drawerLink("02", "Shop", "shop.html")}
+            ${drawerLink("03", "Our Story", "about.html")}
+            ${drawerLink("04", "Collections", "shop.html", "__collections__")}
+            ${drawerLink("05", "Contact", "contact.html")}
           </nav>
-          <div class="mobile-menu-footer">
-            <a href="wishlist.html">Wishlist</a>
-            <a href="cart.html">Cart</a>
-            <div class="language-switcher-mobile">
-              <button class="lang-button" data-lang="en">EN</button>
-              <button class="lang-button" data-lang="ar">AR</button>
+          <div class="mobile-menu-utilities">
+            <span class="mobile-menu-eyebrow">Your Pantry</span>
+            <a class="mobile-utility-row" href="wishlist.html">${icon("heart")}<span>Wishlist</span><strong data-wishlist-count>0</strong></a>
+            <a class="mobile-utility-row" href="cart.html">${icon("bag")}<span>Shopping bag</span><strong data-cart-count>0</strong></a>
+            <span class="mobile-menu-eyebrow mobile-language-label">Language</span>
+            <div class="language-switcher-mobile" role="group" aria-label="Language selection">
+              <button class="lang-button" type="button" data-lang="en" aria-pressed="true">EN</button>
+              <button class="lang-button" type="button" data-lang="ar" dir="rtl" aria-pressed="false">&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;</button>
             </div>
+          </div>
+          <div class="mobile-menu-bottom" aria-hidden="true">
+            <span>Mouneh w Khabrieh</span>
+            <small>mounehwkhabrieh.com</small>
           </div>
         </div>
       </div>
       <div class="site-search-overlay" id="searchOverlay" aria-hidden="true">
-        <div class="search-panel">
+        <div class="search-panel" role="dialog" aria-modal="true" aria-label="Search products">
           <button class="nav-close" id="searchClose" aria-label="Close search">×</button>
           <h2>Search products</h2>
-          <input id="globalSearchInput" type="search" placeholder="Search by product, category or ingredient" autocomplete="off" />
+          <form class="global-search-form" id="globalSearchForm" role="search">
+            <input id="globalSearchInput" type="search" placeholder="Search products, categories or ingredients…" autocomplete="off" aria-label="Search products, categories or ingredients" />
+            <button class="search-submit" type="submit" aria-label="Submit search">${icon("search")}</button>
+          </form>
           <div class="search-suggestions" id="searchSuggestions"></div>
         </div>
       </div>
@@ -336,16 +357,50 @@ const Mouneh = (function () {
     syncMode();
   }
 
-  function openOverlay(element) {
+  function openOverlay(element, trigger) {
+    if (!element) return;
+    element._returnFocus = trigger || document.activeElement;
     element.classList.add("active");
     element.setAttribute("aria-hidden", "false");
-    document.body.classList.add("overlay-open");
+    const inlineMobileSearch = element.id === "searchOverlay" && window.matchMedia("(max-width: 768px)").matches;
+    if (element.id === "searchOverlay") {
+      element.querySelector(".search-panel")?.setAttribute("aria-modal", String(!inlineMobileSearch));
+    }
+    if (!inlineMobileSearch) document.body.classList.add("overlay-open");
+    trigger?.setAttribute("aria-expanded", "true");
+    requestAnimationFrame(() => {
+      const firstControl = element.id === "searchOverlay"
+        ? element.querySelector("input")
+        : element.querySelector(".nav-close, input, button, a[href]");
+      firstControl?.focus();
+    });
   }
 
-  function closeOverlay(element) {
+  function closeOverlay(element, trigger) {
+    if (!element || !element.classList.contains("active")) return;
     element.classList.remove("active");
     element.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("overlay-open");
+    if (!document.querySelector(".mobile-menu-overlay.active, .site-search-overlay.active")) {
+      document.body.classList.remove("overlay-open");
+    }
+    trigger?.setAttribute("aria-expanded", "false");
+    element._returnFocus?.focus?.();
+  }
+
+  function trapOverlayFocus(event, overlay) {
+    if (event.key !== "Tab" || !overlay.classList.contains("active")) return;
+    const controls = Array.from(overlay.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'))
+      .filter((control) => control.getClientRects().length);
+    if (!controls.length) return;
+    const first = controls[0];
+    const last = controls[controls.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
   }
 
   function initHeaderInteractions() {
@@ -359,24 +414,43 @@ const Mouneh = (function () {
     const langButtons = document.querySelectorAll(".lang-button");
 
     if (searchToggle && searchOverlay && searchClose) {
-      searchToggle.addEventListener("click", () => openOverlay(searchOverlay));
-      searchClose.addEventListener("click", () => closeOverlay(searchOverlay));
+      searchToggle.setAttribute("aria-controls", "searchOverlay");
+      searchToggle.setAttribute("aria-expanded", "false");
+      searchToggle.addEventListener("click", () => {
+        if (searchOverlay.classList.contains("active")) closeOverlay(searchOverlay, searchToggle);
+        else openOverlay(searchOverlay, searchToggle);
+      });
+      searchClose.addEventListener("click", () => closeOverlay(searchOverlay, searchToggle));
+      document.addEventListener("pointerdown", (event) => {
+        if (!window.matchMedia("(max-width: 768px)").matches || !searchOverlay.classList.contains("active")) return;
+        if (!searchOverlay.contains(event.target) && !searchToggle.contains(event.target)) {
+          closeOverlay(searchOverlay, searchToggle);
+        }
+      });
       document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") closeOverlay(searchOverlay);
+        if (event.key === "Escape") closeOverlay(searchOverlay, searchToggle);
       });
     }
 
     if (mobileMenuToggle && mobileMenuOverlay && mobileMenuClose) {
-      mobileMenuToggle.addEventListener("click", () => openOverlay(mobileMenuOverlay));
-      mobileMenuClose.addEventListener("click", () => closeOverlay(mobileMenuOverlay));
+      mobileMenuToggle.addEventListener("click", () => openOverlay(mobileMenuOverlay, mobileMenuToggle));
+      mobileMenuClose.addEventListener("click", () => closeOverlay(mobileMenuOverlay, mobileMenuToggle));
+      mobileMenuOverlay.addEventListener("click", (event) => {
+        if (event.target === mobileMenuOverlay) closeOverlay(mobileMenuOverlay, mobileMenuToggle);
+      });
+      mobileMenuOverlay.querySelectorAll(".mobile-nav a, .mobile-utility-row").forEach((link) => {
+        link.addEventListener("click", () => closeOverlay(mobileMenuOverlay, mobileMenuToggle));
+      });
       document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") closeOverlay(mobileMenuOverlay);
+        if (event.key === "Escape") closeOverlay(mobileMenuOverlay, mobileMenuToggle);
+        trapOverlayFocus(event, mobileMenuOverlay);
       });
     }
 
     langButtons.forEach((button) => {
       button.addEventListener("click", () => {
         state.language = button.dataset.lang;
+        langButtons.forEach((option) => option.setAttribute("aria-pressed", String(option.dataset.lang === state.language)));
         setHtmlDirection(state.language === "ar" ? "rtl" : "ltr");
       });
     });
@@ -495,6 +569,7 @@ const Mouneh = (function () {
 
   function initializeSearchOverlay() {
     const searchInput = document.getElementById("globalSearchInput");
+    const searchForm = document.getElementById("globalSearchForm");
     const suggestions = document.getElementById("searchSuggestions");
     if (!searchInput || !suggestions) return;
 
@@ -530,6 +605,12 @@ const Mouneh = (function () {
         const term = searchInput.value.trim();
         if (term) window.location.href = `shop.html?search=${encodeURIComponent(term)}`;
       }
+    });
+
+    searchForm?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const term = searchInput.value.trim();
+      if (term) window.location.href = `shop.html?search=${encodeURIComponent(term)}`;
     });
   }
 

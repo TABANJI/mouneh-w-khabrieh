@@ -453,6 +453,9 @@ body.overlay-open {
   border: 1px solid rgba(26, 25, 23, 0.12);
 }
 
+.global-search-form { display:block; }
+.search-submit { display:none; }
+
 .search-suggestions {
   margin-top: 24px;
   display: grid;

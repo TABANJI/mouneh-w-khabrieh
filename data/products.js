@@ -373,12 +373,12 @@ const products = [
   },
   {
     id: "jalapenos", slug: "jalapenos", name: "Jalapeños",
-    category: "pickles-preserves", subcategory: "Preserved Peppers", price: null, oldPrice: null, currency: "USD",
-    images: ["assets/images/jalapenos.jpg"], badge: null, featured: false, bestseller: false, newArrival: false, stock: null,
-    sizes: ["Details coming soon"], shortDescription: "Manufacturer product details will be available soon.",
+    category: "pickles-preserves", subcategory: "Preserved Peppers", price: 10, oldPrice: null, currency: "USD",
+    images: ["assets/images/jalapenos.jpg"], badge: null, featured: false, bestseller: false, newArrival: false, stock: 100,
+    sizes: ["600G"], shortDescription: "Manufacturer product details will be available soon.",
     description: "Product specifications have not yet been confirmed.", story: "More information about this product will be added when verified.",
     origin: "Details coming soon", ingredients: "Details coming soon", storage: "Details coming soon", howToEnjoy: "Details coming soon",
-    tags: ["pepper", "pickle", "pantry"], detailsPending: true
+    tags: ["pepper", "pickle", "pantry"], detailsPending: false
   },
   {
     id: "mixed-pickles", slug: "mixed-pickles", name: "Mixed Pickles",
