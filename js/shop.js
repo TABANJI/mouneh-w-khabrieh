@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const openFiltersButton = document.getElementById("openFilters");
   const closeFiltersButton = document.getElementById("closeFilters");
   const applyFiltersButton = document.getElementById("applyFilters");
+  const filterAccordions = Array.from(document.querySelectorAll("[data-filter-accordion]"));
 
   const tags = ["bestseller", "newArrival", "onSale", "gift", "pantry"];
   let catalogProducts = [];
@@ -93,6 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const displayed = filtered.slice(0, activePage * pageSize);
     if (productGrid) productGrid.innerHTML = displayed.map((product) => Mouneh.renderProductCard(product)).join("");
     if (resultCount) resultCount.textContent = `${filtered.length} products available`;
+    if (applyFiltersButton) applyFiltersButton.textContent = `Show ${filtered.length} results`;
     if (loadMoreButton) loadMoreButton.style.display = filtered.length > displayed.length ? "inline-flex" : "none";
     Mouneh.attachProductCardEvents(productGrid);
   }
@@ -105,6 +107,15 @@ document.addEventListener("DOMContentLoaded", () => {
     filterOnSale.checked = false;
     categoryFilters.querySelectorAll("input").forEach((input) => (input.checked = false));
     tagFilters.querySelectorAll("input").forEach((input) => (input.checked = false));
+    updateAccordionCounts();
+  }
+
+  function updateAccordionCounts() {
+    filterAccordions.forEach((accordion) => {
+      const count = accordion.querySelectorAll(".filter-accordion-content input:checked").length;
+      const countLabel = accordion.querySelector(".filter-accordion-count");
+      if (countLabel) countLabel.textContent = count ? `(${count})` : "";
+    });
   }
 
   function attachInputEvents() {
@@ -119,12 +130,14 @@ document.addEventListener("DOMContentLoaded", () => {
     categoryFilters.querySelectorAll("input").forEach((input) => {
       input.addEventListener("change", () => {
         activePage = 1;
+        updateAccordionCounts();
         renderProducts();
       });
     });
     tagFilters.querySelectorAll("input").forEach((input) => {
       input.addEventListener("change", () => {
         activePage = 1;
+        updateAccordionCounts();
         renderProducts();
       });
     });
@@ -156,6 +169,16 @@ document.addEventListener("DOMContentLoaded", () => {
   function initializeFilterDrawer() {
     if (!filtersPanel || !openFiltersButton) return;
     const mobileQuery = window.matchMedia("(max-width: 768px)");
+    const syncAccordions = () => {
+      filterAccordions.forEach((accordion) => {
+        const toggle = accordion.querySelector(".filter-accordion-toggle");
+        const content = accordion.querySelector(".filter-accordion-content");
+        const expanded = mobileQuery.matches ? accordion.classList.contains("is-expanded") : true;
+        accordion.classList.toggle("is-expanded", expanded);
+        toggle?.setAttribute("aria-expanded", String(expanded));
+        content?.setAttribute("aria-hidden", String(!expanded));
+      });
+    };
     const syncAccessibility = () => {
       if (mobileQuery.matches) {
         filtersPanel.setAttribute("aria-hidden", String(!filtersPanel.classList.contains("is-open")));
@@ -165,7 +188,18 @@ document.addEventListener("DOMContentLoaded", () => {
         openFiltersButton.setAttribute("aria-expanded", "false");
         document.body.classList.remove("filter-drawer-open");
       }
+      syncAccordions();
     };
+    filterAccordions.forEach((accordion) => {
+      const toggle = accordion.querySelector(".filter-accordion-toggle");
+      toggle?.addEventListener("click", () => {
+        if (!mobileQuery.matches) return;
+        const expanded = !accordion.classList.contains("is-expanded");
+        accordion.classList.toggle("is-expanded", expanded);
+        toggle.setAttribute("aria-expanded", String(expanded));
+        accordion.querySelector(".filter-accordion-content")?.setAttribute("aria-hidden", String(!expanded));
+      });
+    });
     openFiltersButton.addEventListener("click", () => setFilterDrawer(true));
     closeFiltersButton?.addEventListener("click", () => setFilterDrawer(false));
     applyFiltersButton?.addEventListener("click", () => setFilterDrawer(false));
@@ -175,6 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
     mobileQuery.addEventListener?.("change", syncAccessibility);
     window.addEventListener("pagehide", () => setFilterDrawer(false, false));
     syncAccessibility();
+    updateAccordionCounts();
   }
 
   function imageLoads(src) {

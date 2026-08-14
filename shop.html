@@ -42,28 +42,36 @@
           <label for="searchInput">Search</label>
           <input id="searchInput" type="search" placeholder="Search products" />
         </div>
-        <div class="filter-group">
-          <h3>Category</h3>
-          <div id="categoryFilters"></div>
+        <div class="filter-group filter-accordion" data-filter-accordion>
+          <button class="filter-accordion-toggle" type="button" aria-expanded="true" aria-controls="categoryFilters">
+            <span>Category <span class="filter-accordion-count" aria-hidden="true"></span></span>
+            <span class="filter-accordion-chevron" aria-hidden="true"></span>
+          </button>
+          <div id="categoryFilters" class="filter-accordion-content"></div>
         </div>
         <div class="filter-group">
           <h3>Price</h3>
-          <div class="range-row">
-            <label>Min</label>
-            <input id="priceMin" type="number" min="0" placeholder="0" />
-          </div>
-          <div class="range-row">
-            <label>Max</label>
-            <input id="priceMax" type="number" min="0" placeholder="80" />
+          <div class="price-fields">
+            <div class="range-row">
+              <label for="priceMin">Min</label>
+              <input id="priceMin" type="number" min="0" placeholder="0" />
+            </div>
+            <div class="range-row">
+              <label for="priceMax">Max</label>
+              <input id="priceMax" type="number" min="0" placeholder="80" />
+            </div>
           </div>
         </div>
         <div class="filter-group">
           <h3>Availability</h3>
           <label><input type="checkbox" id="filterInStock" /> In stock only</label>
         </div>
-        <div class="filter-group">
-          <h3>Product type</h3>
-          <div id="tagFilters"></div>
+        <div class="filter-group filter-accordion" data-filter-accordion>
+          <button class="filter-accordion-toggle" type="button" aria-expanded="true" aria-controls="tagFilters">
+            <span>Product type <span class="filter-accordion-count" aria-hidden="true"></span></span>
+            <span class="filter-accordion-chevron" aria-hidden="true"></span>
+          </button>
+          <div id="tagFilters" class="filter-accordion-content"></div>
         </div>
         <div class="filter-group">
           <h3>On Sale</h3>
