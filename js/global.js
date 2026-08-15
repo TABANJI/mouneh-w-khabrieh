@@ -216,11 +216,13 @@ const Mouneh = (function () {
         <div class="mobile-menu-panel" role="dialog" aria-modal="true" aria-labelledby="mobileMenuTitle" tabindex="-1">
           <div class="mobile-menu-top">
             <div class="mobile-menu-brand">
-              <strong id="mobileMenuTitle">Mouneh w Khabrieh</strong>
+              <div class="mobile-menu-heading-row">
+                <strong id="mobileMenuTitle">Mouneh w Khabrieh</strong>
+                <button class="nav-close" id="mobileMenuClose" type="button" aria-label="Close menu">&times;</button>
+              </div>
               <span class="mobile-menu-kicker">Lebanese Artisanal Pantry</span>
               <span class="mobile-menu-ar" dir="rtl" lang="ar">&#1605;&#1608;&#1606;&#1577; &#1608;&#1582;&#1576;&#1585;&#1610;&#1577;</span>
             </div>
-            <button class="nav-close" id="mobileMenuClose" type="button" aria-label="Close menu">&times;</button>
           </div>
           <nav class="mobile-nav" aria-label="Mobile primary navigation">
             ${drawerLink("Home", "index.html")}
