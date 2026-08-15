@@ -1049,18 +1049,26 @@
   }
 
   .mobile-menu-overlay .nav-close {
-    position:static;
     flex:0 0 44px;
     width:44px;
     height:44px;
+    position:relative;
     display:grid;
     place-items:center;
     padding:0;
-    border:1px solid rgba(37,52,38,.12);
+    border:0;
     border-radius:50%;
     background:transparent;
     color:var(--olive);
-    font-size:1.65rem;
+    font-size:1.5rem;
+  }
+  .mobile-menu-overlay .nav-close::before {
+    content:"";
+    position:absolute;
+    inset:3px;
+    border:1px solid rgba(37,52,38,.1);
+    border-radius:50%;
+    pointer-events:none;
   }
 
   .mobile-menu-overlay .mobile-nav {
@@ -1070,7 +1078,7 @@
     border-top:1px solid rgba(37,52,38,.1);
   }
   .mobile-menu-overlay .mobile-nav a {
-    min-height:56px;
+    min-height:52px;
     display:grid;
     grid-template-columns:minmax(0,1fr) 14px;
     align-items:center;
@@ -1088,8 +1096,8 @@
     width:7px;
     height:7px;
     justify-self:end;
-    border-right:1px solid rgba(37,52,38,.52);
-    border-bottom:1px solid rgba(37,52,38,.52);
+    border-right:1px solid rgba(37,52,38,.68);
+    border-bottom:1px solid rgba(37,52,38,.68);
     transform:rotate(-45deg);
   }
   .mobile-nav a.is-active .mobile-nav-marker {
@@ -1098,9 +1106,9 @@
 
   .mobile-menu-utilities {
     display:grid;
-    margin-top:23px;
+    margin-top:20px;
   }
-  .mobile-menu-eyebrow { margin-bottom:7px; }
+  .mobile-menu-eyebrow { margin-bottom:6px; }
   .mobile-utility-row {
     min-height:44px;
     display:grid;
@@ -1122,7 +1130,7 @@
     font-size:.68rem;
     font-weight:700;
   }
-  .mobile-language-label { margin-top:20px; }
+  .mobile-language-label { margin-top:18px; }
   .mobile-menu-overlay .language-switcher-mobile {
     width:100%;
     gap:0;
@@ -1148,10 +1156,11 @@
 
   .mobile-menu-bottom {
     display:flex;
-    align-items:flex-end;
+    align-items:baseline;
     justify-content:space-between;
     gap:18px;
-    margin-top:auto;
+    margin-top:clamp(22px,5vh,40px);
+    margin-bottom:auto;
     padding-top:26px;
     color:var(--muted);
   }
