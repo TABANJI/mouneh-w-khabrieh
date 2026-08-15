@@ -1288,6 +1288,19 @@
     background-color:var(--bg);
   }
 
+  #site-footer .site-footer .footer-brand strong {
+    max-width:100%;
+    margin:12px 0 26px;
+    color:#363a31;
+    font-family:Georgia,serif;
+    font-size:clamp(1.84rem,9.2vw,2.7rem);
+    font-weight:400;
+    letter-spacing:-.05em;
+    line-height:1;
+    text-align:left;
+    white-space:nowrap;
+  }
+
   #site-footer .footer-grid {
     display:block;
     margin-bottom:0;
