@@ -514,7 +514,7 @@ const Mouneh = (function () {
             ${product.oldPrice ? `<span class="product-old-price">${formatPrice(product.oldPrice)}</span>` : ""}
           </div>`}
           <div class="product-actions">
-            <button class="wishlist-button ${isWishlisted ? "is-saved" : ""}" data-product-id="${product.id}" type="button" aria-label="${isWishlisted ? "Remove from" : "Add to"} wishlist">♡</button>
+            <button class="wishlist-button ${isWishlisted ? "is-saved" : ""}" data-product-id="${product.id}" type="button" aria-label="${isWishlisted ? "Remove from" : "Add to"} wishlist">${isWishlisted ? "♥" : "♡"}</button>
             ${minimalPending || !Number.isFinite(product.price) ? "" : `<button class="button button-sm add-cart-button" data-product-id="${product.id}" type="button" ${product.detailsPending ? "disabled" : ""}>${product.detailsPending ? "Coming Soon" : "Add to Cart"}</button>`}
           </div>
         </div>
@@ -564,6 +564,7 @@ const Mouneh = (function () {
         const added = toggleWishlist(productId);
         button.textContent = added ? "♥" : "♡";
         button.classList.toggle("is-saved", added);
+        button.setAttribute("aria-label", `${added ? "Remove from" : "Add to"} wishlist`);
       });
     });
   }

@@ -1014,9 +1014,9 @@
   }
 
   #wishlistGrid .wishlist-button.is-saved {
-    border-color:var(--olive);
-    background:var(--olive);
-    color:#fffdf9;
+    border-color:rgba(37,52,38,.24);
+    background:rgba(255,253,249,.94);
+    color:var(--olive);
   }
 
   #wishlistGrid .product-actions {

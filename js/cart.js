@@ -11,6 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const couponCode = document.getElementById("couponCode");
   const checkoutButton = document.getElementById("checkoutButton");
 
+  try {
+    const savedCheckout = JSON.parse(localStorage.getItem("mounehCheckout")) || {};
+    if (couponCode && savedCheckout.couponCode) couponCode.value = savedCheckout.couponCode;
+  } catch {
+    localStorage.removeItem("mounehCheckout");
+  }
+
   function getCartItems() {
     return JSON.parse(localStorage.getItem("mounehCart")) || [];
   }
@@ -80,10 +87,29 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function setCheckoutAvailability(total) {
-    if (!checkoutButton) return;
     const enabled = Number.isFinite(total) && total > 0;
-    checkoutButton.disabled = !enabled;
-    checkoutButton.setAttribute("aria-disabled", String(!enabled));
+    [checkoutButton, stickyCheckoutButton].forEach((button) => {
+      if (!button) return;
+      button.disabled = !enabled;
+      button.setAttribute("aria-disabled", String(!enabled));
+    });
+  }
+
+  function beginCheckout() {
+    const items = getCartItems();
+    const subtotal = items.reduce((sum, item) => {
+      const product = products.find((entry) => entry.id === item.productId);
+      return product ? sum + product.price * item.quantity : sum;
+    }, 0);
+    if (!items.length || !Number.isFinite(subtotal) || subtotal <= 0) return;
+    localStorage.setItem("mounehCheckout", JSON.stringify({
+      items,
+      couponCode:couponCode?.value.trim() || "",
+      subtotal,
+      total:subtotal,
+      updatedAt:new Date().toISOString()
+    }));
+    window.location.assign("checkout.html");
   }
 
   function saveCart(items) {
@@ -149,14 +175,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  if (checkoutButton) {
-    checkoutButton.addEventListener("click", () => {
-      if (checkoutButton.disabled) return;
-      Mouneh.toast("Checkout is temporarily unavailable. Please try again shortly.");
-    });
-  }
-
-  stickyCheckoutButton?.addEventListener("click", () => checkoutButton?.click());
+  checkoutButton?.addEventListener("click", beginCheckout);
+  stickyCheckoutButton?.addEventListener("click", beginCheckout);
 
   renderCart();
 });

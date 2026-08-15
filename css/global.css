@@ -139,8 +139,10 @@ body.overlay-open {
 .product-price { font-size:.92rem; }
 .product-old-price { font-size:.82rem; }
 .product-actions { align-items:center; flex-wrap:nowrap; margin-top:8px; }
-.wishlist-button { width:42px; height:42px; flex:0 0 42px; border:1px solid rgba(28,28,25,.18); background:transparent; border-radius:50%; font-size:1.25rem; color:var(--olive); padding:0; }
-.wishlist-button.is-saved { background:var(--olive); color:#fff; }
+.wishlist-button { width:42px; height:42px; flex:0 0 42px; display:grid; place-items:center; padding:0; border:1px solid rgba(28,28,25,.18); border-radius:50%; background:transparent; color:var(--olive); font-size:1.25rem; line-height:1; transition:color .18s ease; }
+.wishlist-button.is-saved { color:var(--olive); }
+.wishlist-button:focus:not(:focus-visible) { outline:0; }
+.wishlist-button:focus-visible { outline:2px solid rgba(37,52,38,.42); outline-offset:2px; }
 .add-cart-button { flex:1; background:transparent; color:var(--olive); border:1px solid var(--olive); box-shadow:none; }
 .add-cart-button:hover { background:var(--olive); color:#fff; }
 
