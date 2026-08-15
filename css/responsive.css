@@ -1065,6 +1065,7 @@
     font-size:1.6rem;
     font-weight:300;
     margin-right:-4px;
+    transform:translateY(-12px);
   }
 
   .mobile-menu-overlay .mobile-nav {
