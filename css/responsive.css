@@ -797,8 +797,10 @@
   }
 
   .homepage ~ #site-footer .footer-brand strong {
-    font-size:clamp(2.5rem,12vw,4rem);
+    max-width:100%;
+    font-size:clamp(1.84rem,9.2vw,2.7rem);
     margin-bottom:26px;
+    white-space:nowrap;
   }
 
   .homepage ~ #site-footer .footer-brand p {
@@ -1230,7 +1232,7 @@
   #site-footer .footer-accordion-trigger {
     display:flex;
     width:100%;
-    min-height:68px;
+    min-height:64px;
     padding:0;
     align-items:center;
     justify-content:space-between;
@@ -1243,12 +1245,22 @@
 
   #site-footer .footer-accordion-trigger span {
     margin:0;
+    padding:0;
+    align-self:center;
     color:inherit;
     font-size:.9375rem;
     font-weight:700;
     line-height:1.2;
     letter-spacing:.17em;
     text-transform:uppercase;
+    transform:none;
+  }
+
+  #site-footer .footer-grid .footer-group .footer-accordion-trigger > span {
+    margin:0;
+    padding:0;
+    align-self:center;
+    transform:none;
   }
 
   #site-footer .footer-accordion-trigger i {
