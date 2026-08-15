@@ -286,11 +286,12 @@
 
   .shop-page .shop-hero {
     gap:0;
-    padding-top:42px;
+    padding-top:0;
     padding-bottom:34px;
   }
 
   .shop-hero>div:first-child>span {
+    color:var(--gold);
     font-size:.9375rem;
     font-weight:600;
     letter-spacing:.18em;
@@ -931,6 +932,20 @@
 
   :is(.wishlist-page,.cart-page).page-shell {
     padding-bottom:56px;
+  }
+}
+
+@media (max-width:480px) {
+  .shop-page .shop-hero h1 {
+    margin-top:16px;
+    font-size:clamp(1.65rem,8.35vw,2.25rem);
+    line-height:.96;
+    letter-spacing:-.025em;
+  }
+
+  .shop-page .shop-hero h1 .shop-title-line {
+    display:block;
+    white-space:nowrap;
   }
 }
 

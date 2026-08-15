@@ -889,8 +889,9 @@
 
 @media (max-width: 480px) {
   .homepage .hero-copy h1 {
+    margin-bottom:30px;
     font-size:clamp(1.7rem,8.6vw,2.3rem);
-    line-height:.95;
+    line-height:.92;
     white-space:nowrap;
   }
 
@@ -900,6 +901,28 @@
 
   .homepage .hero-copy h1 .hero-title-line:last-child {
     display:block;
+  }
+
+  .homepage .hero-copy>p:not(.hero-note) {
+    margin-bottom:35px;
+  }
+
+  .homepage .hero-actions {
+    gap:22px;
+  }
+
+  .homepage .section-intro {
+    padding-top:clamp(46px,12vw,58px);
+  }
+
+  .homepage .section-intro .section-heading {
+    margin-bottom:24px;
+  }
+
+  .homepage .section-intro .section-heading h2 {
+    max-width:340px;
+    font-size:clamp(2rem,8.7vw,2.4rem);
+    line-height:.98;
   }
 
   .homepage .section-editorial-transition h2 {
