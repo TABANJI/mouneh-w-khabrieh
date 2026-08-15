@@ -165,9 +165,8 @@ const Mouneh = (function () {
       return `<svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${paths[name]}</svg>`;
     };
     const currentPage = window.location.pathname.split("/").pop() || "index.html";
-    const drawerLink = (number, label, href, activePage = href) => `
+    const drawerLink = (label, href, activePage = href) => `
       <a href="${href}"${currentPage === activePage ? ' class="is-active" aria-current="page"' : ""}>
-        <span class="mobile-nav-index">${number}</span>
         <span class="mobile-nav-label">${label}</span>
         <span class="mobile-nav-marker" aria-hidden="true"></span>
       </a>`;
@@ -224,11 +223,11 @@ const Mouneh = (function () {
             <button class="nav-close" id="mobileMenuClose" type="button" aria-label="Close menu">&times;</button>
           </div>
           <nav class="mobile-nav" aria-label="Mobile primary navigation">
-            ${drawerLink("01", "Home", "index.html")}
-            ${drawerLink("02", "Shop", "shop.html")}
-            ${drawerLink("03", "Our Story", "about.html")}
-            ${drawerLink("04", "Collections", "shop.html", "__collections__")}
-            ${drawerLink("05", "Contact", "contact.html")}
+            ${drawerLink("Home", "index.html")}
+            ${drawerLink("Shop", "shop.html")}
+            ${drawerLink("Our Story", "about.html")}
+            ${drawerLink("Collections", "shop.html", "__collections__")}
+            ${drawerLink("Contact", "contact.html")}
           </nav>
           <div class="mobile-menu-utilities">
             <span class="mobile-menu-eyebrow">Your Pantry</span>

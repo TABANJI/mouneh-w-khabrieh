@@ -1070,42 +1070,39 @@
     border-top:1px solid rgba(37,52,38,.1);
   }
   .mobile-menu-overlay .mobile-nav a {
-    min-height:61px;
+    min-height:56px;
     display:grid;
-    grid-template-columns:34px minmax(0,1fr) 8px;
+    grid-template-columns:minmax(0,1fr) 14px;
     align-items:center;
-    gap:12px;
+    gap:16px;
     border-bottom:1px solid rgba(37,52,38,.1);
     color:var(--olive);
   }
-  .mobile-nav-index {
-    color:var(--gold);
-    font-size:.65rem;
-    font-weight:700;
-    letter-spacing:.12em;
-  }
   .mobile-nav-label {
     font-family:"Cormorant Garamond",Georgia,serif;
-    font-size:1.52rem;
+    font-size:1.42rem;
     font-weight:600;
     line-height:1;
   }
   .mobile-nav-marker {
-    width:5px;
-    height:5px;
+    width:7px;
+    height:7px;
     justify-self:end;
-    border-radius:50%;
-    background:transparent;
+    border-right:1px solid rgba(37,52,38,.52);
+    border-bottom:1px solid rgba(37,52,38,.52);
+    transform:rotate(-45deg);
   }
-  .mobile-nav a.is-active .mobile-nav-marker { background:var(--gold); }
+  .mobile-nav a.is-active .mobile-nav-marker {
+    border-color:var(--gold);
+  }
 
   .mobile-menu-utilities {
     display:grid;
-    margin-top:27px;
+    margin-top:23px;
   }
-  .mobile-menu-eyebrow { margin-bottom:9px; }
+  .mobile-menu-eyebrow { margin-bottom:7px; }
   .mobile-utility-row {
-    min-height:46px;
+    min-height:44px;
     display:grid;
     grid-template-columns:24px minmax(0,1fr) auto;
     align-items:center;
@@ -1125,7 +1122,7 @@
     font-size:.68rem;
     font-weight:700;
   }
-  .mobile-language-label { margin-top:24px; }
+  .mobile-language-label { margin-top:20px; }
   .mobile-menu-overlay .language-switcher-mobile {
     width:100%;
     gap:0;
@@ -1136,8 +1133,8 @@
   }
   .mobile-menu-overlay .language-switcher-mobile .lang-button {
     flex:1;
-    min-height:38px;
-    padding:6px 12px;
+    min-height:34px;
+    padding:4px 12px;
     border:0;
     background:transparent;
     color:var(--muted);
@@ -1155,7 +1152,7 @@
     justify-content:space-between;
     gap:18px;
     margin-top:auto;
-    padding-top:28px;
+    padding-top:26px;
     color:var(--muted);
   }
   .mobile-menu-bottom span {
@@ -1163,7 +1160,13 @@
     font-size:1rem;
     font-weight:600;
   }
-  .mobile-menu-bottom small { font-size:.64rem; letter-spacing:.08em; }
+  .mobile-menu-bottom small {
+    margin-left:auto;
+    font-size:.64rem;
+    line-height:1.25;
+    letter-spacing:.08em;
+    text-align:right;
+  }
 }
 
 @media (max-width: 768px) and (max-height: 700px) {

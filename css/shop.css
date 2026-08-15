@@ -189,8 +189,17 @@
 .wishlist-empty-icon { display:none; }
 
 @media (max-width:768px) {
+  .wishlist-page .shop-hero h1 {
+    margin:18px 0 18px;
+    font-size:clamp(2.55rem,11.5vw,3.05rem);
+  }
+
+  .wishlist-page .shop-hero {
+    padding-bottom:30px;
+  }
+
   .wishlist-page .wishlist-empty {
-    padding:30px 24px;
+    padding:26px 22px;
     border:1px solid rgba(79,70,54,.09);
     border-radius:24px;
     background:#fffdf9;
@@ -199,20 +208,20 @@
 
   .wishlist-page .wishlist-empty-icon {
     display:block;
-    width:52px;
-    height:52px;
-    margin:0 auto 26px;
+    width:46px;
+    height:46px;
+    margin:0 auto 22px;
     color:var(--olive);
   }
 
   .wishlist-page .wishlist-empty h2 {
-    margin:0 0 16px;
+    margin:0 0 13px;
     font:400 1.75rem/1.1 Georgia,serif;
   }
 
   .wishlist-page .wishlist-empty p {
     max-width:290px;
-    margin:0 auto 30px;
+    margin:0 auto 25px;
     color:var(--muted);
     font-size:.9rem;
     line-height:1.5;
@@ -226,9 +235,9 @@
   }
 
   .wishlist-page.is-wishlist-empty .wishlist-grid { display:none; }
-  .wishlist-page.is-wishlist-empty .wishlist-empty { margin-top:16px; }
-  .wishlist-page.is-wishlist-empty.page-shell { padding-bottom:32px; }
-  .wishlist-page.is-wishlist-empty .shop-hero { padding-bottom:20px; }
+  .wishlist-page.is-wishlist-empty .wishlist-empty { margin-top:12px; }
+  .wishlist-page.is-wishlist-empty.page-shell { padding-bottom:20px; }
+  .wishlist-page.is-wishlist-empty .shop-hero { padding-bottom:18px; }
 }
 
 @media (max-width: 980px) {
@@ -803,57 +812,57 @@
     background:var(--olive);
   }
 
-  :is(.shop-page,.wishlist-page,.cart-page) ~ #site-footer {
+  :is(.shop-page,.wishlist-page,.cart-page,.product-page) ~ #site-footer {
     padding-top:0;
     background:var(--bg);
   }
 
-  :is(.shop-page,.wishlist-page,.cart-page) ~ #site-footer .site-footer {
+  :is(.shop-page,.wishlist-page,.cart-page,.product-page) ~ #site-footer .site-footer {
     padding:36px 20px 44px;
     color:var(--text);
     border-top:1px solid rgba(157,130,77,.11);
     background:var(--bg);
   }
 
-  :is(.shop-page,.wishlist-page,.cart-page) ~ #site-footer .footer-brand {
+  :is(.shop-page,.wishlist-page,.cart-page,.product-page) ~ #site-footer .footer-brand {
     margin-bottom:38px;
     padding-bottom:34px;
     border-bottom:1px solid rgba(157,130,77,.18);
   }
 
-  :is(.shop-page,.wishlist-page,.cart-page) ~ #site-footer .footer-brand span,
-  :is(.shop-page,.wishlist-page,.cart-page) ~ #site-footer .footer-grid span {
+  :is(.shop-page,.wishlist-page,.cart-page,.product-page) ~ #site-footer .footer-brand span,
+  :is(.shop-page,.wishlist-page,.cart-page,.product-page) ~ #site-footer .footer-grid span {
     color:#8b7041;
     font-weight:700;
     letter-spacing:.14em;
   }
 
-  :is(.shop-page,.wishlist-page,.cart-page) ~ #site-footer .footer-brand strong {
+  :is(.shop-page,.wishlist-page,.cart-page,.product-page) ~ #site-footer .footer-brand strong {
     margin:12px 0 26px;
     color:#363a31;
     font-size:clamp(2.5rem,12vw,4rem);
     opacity:1;
   }
 
-  :is(.shop-page,.wishlist-page,.cart-page) ~ #site-footer .footer-brand p {
+  :is(.shop-page,.wishlist-page,.cart-page,.product-page) ~ #site-footer .footer-brand p {
     margin:0;
     color:#656456;
   }
 
-  :is(.shop-page,.wishlist-page,.cart-page) ~ #site-footer .footer-grid {
+  :is(.shop-page,.wishlist-page,.cart-page,.product-page) ~ #site-footer .footer-grid {
     grid-template-columns:minmax(0,.82fr) minmax(0,1.35fr);
     column-gap:24px;
     row-gap:48px;
     margin-bottom:52px;
   }
 
-  :is(.shop-page,.wishlist-page,.cart-page) ~ #site-footer .footer-grid span {
+  :is(.shop-page,.wishlist-page,.cart-page,.product-page) ~ #site-footer .footer-grid span {
     margin-bottom:28px;
     font-size:.95rem;
     line-height:1.35;
   }
 
-  :is(.shop-page,.wishlist-page,.cart-page) ~ #site-footer .footer-grid a {
+  :is(.shop-page,.wishlist-page,.cart-page,.product-page) ~ #site-footer .footer-grid a {
     width:fit-content;
     margin-bottom:18px;
     color:#656456;
@@ -861,18 +870,18 @@
     line-height:1.4;
   }
 
-  :is(.shop-page,.wishlist-page,.cart-page) ~ #site-footer .footer-grid div a:last-child {
+  :is(.shop-page,.wishlist-page,.cart-page,.product-page) ~ #site-footer .footer-grid div a:last-child {
     margin-bottom:0;
   }
 
-  :is(.shop-page,.wishlist-page,.cart-page) ~ #site-footer .footer-grid a[href^="mailto:"] {
+  :is(.shop-page,.wishlist-page,.cart-page,.product-page) ~ #site-footer .footer-grid a[href^="mailto:"] {
     max-width:100%;
     font-size:clamp(.8125rem,3.35vw,.9375rem);
     overflow-wrap:anywhere;
     word-break:normal;
   }
 
-  :is(.shop-page,.wishlist-page,.cart-page) ~ #site-footer .footer-bottom {
+  :is(.shop-page,.wishlist-page,.cart-page,.product-page) ~ #site-footer .footer-bottom {
     flex-direction:column;
     align-items:flex-start;
     gap:16px;
@@ -882,12 +891,42 @@
     border-top:1px solid rgba(157,130,77,.11);
   }
 
-  :is(.shop-page,.wishlist-page,.cart-page) ~ #site-footer .footer-bottom p {
+  :is(.shop-page,.wishlist-page,.cart-page,.product-page) ~ #site-footer .footer-bottom p {
     margin:0;
   }
 
   :is(.wishlist-page,.cart-page) ~ #site-footer .footer-brand {
     display:none;
+  }
+
+  :is(.wishlist-page,.cart-page) ~ #site-footer .site-footer {
+    padding-top:30px;
+    padding-bottom:38px;
+  }
+
+  :is(.wishlist-page,.cart-page) ~ #site-footer .footer-accordion-trigger {
+    min-height:64px;
+  }
+
+  :is(.wishlist-page,.cart-page) ~ #site-footer .footer-accordion-trigger span {
+    font-weight:600;
+    letter-spacing:.155em;
+  }
+
+  :is(.wishlist-page,.cart-page) ~ #site-footer .footer-accordion-trigger i {
+    width:16px;
+    height:16px;
+    flex-basis:16px;
+  }
+
+  :is(.wishlist-page,.cart-page) ~ #site-footer .footer-accordion-trigger i::before,
+  :is(.wishlist-page,.cart-page) ~ #site-footer .footer-accordion-trigger i::after {
+    width:12px;
+  }
+
+  :is(.wishlist-page,.cart-page) ~ #site-footer .footer-bottom {
+    gap:12px;
+    padding-top:24px;
   }
 
   :is(.wishlist-page,.cart-page).page-shell {
