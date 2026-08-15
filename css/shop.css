@@ -937,7 +937,7 @@
   #wishlistGrid {
     width:100%;
     grid-template-columns:minmax(0,1fr);
-    gap:18px;
+    gap:22px;
     margin-top:26px;
   }
 
@@ -949,22 +949,22 @@
   }
 
   #wishlistGrid .product-image {
-    height:clamp(220px,66vw,280px);
-    padding:14px;
+    height:clamp(185px,55vw,232px);
+    padding:10px;
   }
 
   #wishlistGrid .product-packshot {
-    max-width:82%;
-    max-height:88%;
+    max-width:86%;
+    max-height:92%;
   }
 
   #wishlistGrid .product-card-body {
-    padding:20px 18px 18px;
+    padding:18px 18px 16px;
   }
 
   #wishlistGrid .product-card-meta {
     min-height:16px;
-    margin-bottom:7px;
+    margin-bottom:6px;
   }
 
   #wishlistGrid .product-category {
@@ -975,7 +975,7 @@
   #wishlistGrid .product-title {
     min-height:0;
     max-height:2.24em;
-    margin-bottom:9px;
+    margin-bottom:7px;
     font-size:clamp(1.42rem,6.4vw,1.7rem);
     line-height:1.08;
   }
@@ -983,18 +983,18 @@
   #wishlistGrid .product-description {
     min-height:0;
     max-height:2.9em;
-    margin-bottom:10px;
+    margin-bottom:8px;
     font-size:.79rem;
     line-height:1.45;
   }
 
   #wishlistGrid .product-size {
-    margin-bottom:5px;
+    margin-bottom:4px;
     font-size:.7rem;
   }
 
   #wishlistGrid .product-line {
-    margin-bottom:12px;
+    margin-bottom:8px;
   }
 
   #wishlistGrid .product-price {
