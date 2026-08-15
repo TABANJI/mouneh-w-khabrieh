@@ -641,7 +641,7 @@
   }
 
   .homepage .hero-panel {
-    padding-top:58px;
+    padding-top:30px;
   }
 
   .homepage .hero-copy .eyebrow {
@@ -1206,6 +1206,11 @@
 }
 
 @media (max-width: 768px) {
+  #site-footer,
+  #site-footer .site-footer {
+    background-color:var(--bg);
+  }
+
   #site-footer .footer-grid {
     display:block;
     margin-bottom:0;
