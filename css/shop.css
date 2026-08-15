@@ -933,6 +933,107 @@
   :is(.wishlist-page,.cart-page).page-shell {
     padding-bottom:56px;
   }
+
+  #wishlistGrid {
+    width:100%;
+    grid-template-columns:minmax(0,1fr);
+    gap:18px;
+    margin-top:26px;
+  }
+
+  #wishlistGrid .product-card {
+    width:100%;
+    min-height:0;
+    height:auto;
+    border-radius:24px;
+  }
+
+  #wishlistGrid .product-image {
+    height:clamp(220px,66vw,280px);
+    padding:14px;
+  }
+
+  #wishlistGrid .product-packshot {
+    max-width:82%;
+    max-height:88%;
+  }
+
+  #wishlistGrid .product-card-body {
+    padding:20px 18px 18px;
+  }
+
+  #wishlistGrid .product-card-meta {
+    min-height:16px;
+    margin-bottom:7px;
+  }
+
+  #wishlistGrid .product-category {
+    font-size:.64rem;
+    letter-spacing:.13em;
+  }
+
+  #wishlistGrid .product-title {
+    min-height:0;
+    max-height:2.24em;
+    margin-bottom:9px;
+    font-size:clamp(1.42rem,6.4vw,1.7rem);
+    line-height:1.08;
+  }
+
+  #wishlistGrid .product-description {
+    min-height:0;
+    max-height:2.9em;
+    margin-bottom:10px;
+    font-size:.79rem;
+    line-height:1.45;
+  }
+
+  #wishlistGrid .product-size {
+    margin-bottom:5px;
+    font-size:.7rem;
+  }
+
+  #wishlistGrid .product-line {
+    margin-bottom:12px;
+  }
+
+  #wishlistGrid .product-price {
+    font-size:1.05rem;
+  }
+
+  #wishlistGrid .wishlist-button {
+    top:14px;
+    right:14px;
+    width:46px;
+    height:46px;
+    flex-basis:46px;
+    border-color:rgba(37,52,38,.24);
+    background:rgba(255,253,249,.94);
+    color:var(--olive);
+    font-size:1.15rem;
+  }
+
+  #wishlistGrid .wishlist-button.is-saved {
+    border-color:var(--olive);
+    background:var(--olive);
+    color:#fffdf9;
+  }
+
+  #wishlistGrid .product-actions {
+    min-height:46px;
+  }
+
+  #wishlistGrid .add-cart-button {
+    height:46px;
+    min-height:46px;
+    border-radius:23px;
+    font-size:.66rem;
+    letter-spacing:.1em;
+  }
+
+  .wishlist-page:not(.is-wishlist-empty).page-shell {
+    padding-bottom:28px;
+  }
 }
 
 @media (max-width:480px) {
