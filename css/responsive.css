@@ -1049,9 +1049,9 @@
   }
 
   .mobile-menu-overlay .nav-close {
-    flex:0 0 72px;
-    width:72px;
-    height:72px;
+    flex:0 0 56px;
+    width:56px;
+    height:56px;
     position:relative;
     display:grid;
     place-items:center;
@@ -1060,9 +1060,9 @@
     border-radius:50%;
     background:transparent;
     color:var(--olive);
-    font-size:2rem;
+    font-size:1.6rem;
     font-weight:300;
-    margin-right:-14px;
+    margin-right:-4px;
   }
 
   .mobile-menu-overlay .mobile-nav {
