@@ -749,8 +749,13 @@
   }
 
   .homepage .section-story-text .story-copy::after {
+    width:max-content;
+    max-width:100%;
     margin-top:42px;
-    padding-top:18px;
+    padding-top:14px;
+    font-size:.56rem;
+    letter-spacing:.09em;
+    white-space:nowrap;
   }
 
   .homepage .section-values {
@@ -760,6 +765,12 @@
 
   .homepage .section-values .section-heading {
     margin-bottom:24px;
+  }
+
+  .homepage .section-values .section-heading h2 {
+    max-width:none;
+    font-size:clamp(1.25rem,6.15vw,1.67rem);
+    white-space:nowrap;
   }
 
   .homepage .section-values .values-grid {
@@ -873,6 +884,18 @@
   .homepage-body .header-actions .icon-button {
     width:42px;
     flex-basis:42px;
+  }
+}
+
+@media (max-width: 480px) {
+  .homepage .section-editorial-transition h2 {
+    font-size:clamp(1.5rem,7.5vw,2rem);
+    line-height:.98;
+  }
+
+  .homepage .section-editorial-transition h2 .editorial-heading-line {
+    display:block;
+    white-space:nowrap;
   }
 }
 
