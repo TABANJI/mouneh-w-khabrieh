@@ -26,7 +26,7 @@
             <label>First name <em>*</em><input name="firstName" autocomplete="given-name" required /><small class="field-error"></small></label>
             <label>Last name <em>*</em><input name="lastName" autocomplete="family-name" required /><small class="field-error"></small></label>
             <label class="checkout-field-wide">Company name (optional)<input name="company" autocomplete="organization" /><small class="field-error"></small></label>
-            <label class="checkout-field-wide">Country / Region <em>*</em><select name="country" autocomplete="country-name" required><option value="Lebanon" selected>Lebanon</option><option value="Jordan">Jordan</option><option value="Syria">Syria</option><option value="United Arab Emirates">United Arab Emirates</option><option value="Other">Other</option></select><small class="field-error"></small></label>
+            <label class="checkout-field-wide">Country / Region <em>*</em><span class="checkout-fixed-country">Lebanon</span><input name="country" type="hidden" value="Lebanon" /></label>
             <label class="checkout-field-wide">Street address <em>*</em><input name="address" autocomplete="street-address" required /><small class="field-error"></small></label>
             <label class="checkout-field-wide">Apartment, suite, floor, building (optional)<input name="address2" autocomplete="address-line2" /><small class="field-error"></small></label>
             <label>Town / City <em>*</em><input name="city" autocomplete="address-level2" required /><small class="field-error"></small></label>
@@ -41,7 +41,7 @@
             <div class="checkout-fields">
               <label>First name <em>*</em><input name="deliveryFirstName" autocomplete="shipping given-name" /><small class="field-error"></small></label>
               <label>Last name <em>*</em><input name="deliveryLastName" autocomplete="shipping family-name" /><small class="field-error"></small></label>
-              <label class="checkout-field-wide">Country / Region <em>*</em><select name="deliveryCountry" autocomplete="shipping country-name"><option value="Lebanon" selected>Lebanon</option><option value="Jordan">Jordan</option><option value="Syria">Syria</option><option value="United Arab Emirates">United Arab Emirates</option><option value="Other">Other</option></select><small class="field-error"></small></label>
+              <label class="checkout-field-wide">Country / Region <em>*</em><span class="checkout-fixed-country">Lebanon</span><input name="deliveryCountry" type="hidden" value="Lebanon" /></label>
               <label class="checkout-field-wide">Street address <em>*</em><input name="deliveryAddress" autocomplete="shipping street-address" /><small class="field-error"></small></label>
               <label class="checkout-field-wide">Apartment, suite, floor (optional)<input name="deliveryAddress2" autocomplete="shipping address-line2" /><small class="field-error"></small></label>
               <label>Town / City <em>*</em><input name="deliveryCity" autocomplete="shipping address-level2" /><small class="field-error"></small></label>

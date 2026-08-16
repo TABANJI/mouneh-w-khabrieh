@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!form || !draft.fields) return;
     Object.entries(draft.fields).forEach(([name, value]) => {
       const field = form.elements.namedItem(name);
-      if (!field || field instanceof RadioNodeList || field.type === "radio" || field.type === "checkbox") return;
+      if (!field || ["country","deliveryCountry"].includes(name) || field instanceof RadioNodeList || field.type === "radio" || field.type === "checkbox") return;
       field.value = value;
     });
     differentAddress.checked = Boolean(draft.differentAddress);
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
     alternateDelivery?.classList.toggle("is-open", open);
     alternateDelivery?.setAttribute("aria-hidden", String(!open));
     alternateDelivery?.querySelectorAll("input,select").forEach((field) => {
-      field.required = open && ["deliveryFirstName","deliveryLastName","deliveryCountry","deliveryAddress","deliveryCity","deliveryPhone"].includes(field.name);
+      field.required = open && ["deliveryFirstName","deliveryLastName","deliveryAddress","deliveryCity","deliveryPhone"].includes(field.name);
     });
   }
 
@@ -106,6 +106,11 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".payment-detail").forEach((detail) => {
       detail.hidden = detail.dataset.payment !== selected;
     });
+  }
+
+  function updatePlaceOrderAvailability() {
+    if (!placeOrderButton || !form) return;
+    placeOrderButton.disabled = validItems.length === 0 || !form.checkValidity();
   }
 
   function errorMessage(field) {
@@ -149,8 +154,8 @@ document.addEventListener("DOMContentLoaded", () => {
       shippingLabel:shippingMethods[shippingMethod].label,
       shippingCost:cost,
       total:subtotal + cost,
-      billing:{ firstName:fields.firstName, lastName:fields.lastName, company:fields.company || "", country:fields.country, address:fields.address, address2:fields.address2 || "", city:fields.city, postcode:fields.postcode || "", phone:fields.phone, email:fields.email },
-      delivery:differentAddress.checked ? { firstName:fields.deliveryFirstName, lastName:fields.deliveryLastName, country:fields.deliveryCountry, address:fields.deliveryAddress, address2:fields.deliveryAddress2 || "", city:fields.deliveryCity, postcode:fields.deliveryPostcode || "", phone:fields.deliveryPhone } : { firstName:fields.firstName, lastName:fields.lastName, country:fields.country, address:fields.address, address2:fields.address2 || "", city:fields.city, postcode:fields.postcode || "", phone:fields.phone },
+      billing:{ firstName:fields.firstName, lastName:fields.lastName, company:fields.company || "", country:"Lebanon", address:fields.address, address2:fields.address2 || "", city:fields.city, postcode:fields.postcode || "", phone:fields.phone, email:fields.email },
+      delivery:differentAddress.checked ? { firstName:fields.deliveryFirstName, lastName:fields.deliveryLastName, country:"Lebanon", address:fields.deliveryAddress, address2:fields.deliveryAddress2 || "", city:fields.deliveryCity, postcode:fields.deliveryPostcode || "", phone:fields.deliveryPhone } : { firstName:fields.firstName, lastName:fields.lastName, country:"Lebanon", address:fields.address, address2:fields.address2 || "", city:fields.city, postcode:fields.postcode || "", phone:fields.phone },
       notes:fields.notes || "",
       paymentMethod,
       paymentLabel:paymentMethods[paymentMethod],
@@ -173,17 +178,20 @@ document.addEventListener("DOMContentLoaded", () => {
   updateAlternateDelivery();
   updatePaymentDetails();
   updateTotals();
+  updatePlaceOrderAvailability();
   if (couponElement && checkoutState.couponCode) {
     couponElement.hidden = false;
     couponElement.textContent = `Coupon entered: ${checkoutState.couponCode}`;
   }
-  if (placeOrderButton) placeOrderButton.disabled = validItems.length === 0;
-
-  differentAddress?.addEventListener("change", () => { updateAlternateDelivery(); saveDraft(); });
-  document.querySelectorAll('input[name="shippingMethod"]').forEach((input) => input.addEventListener("change", () => { updateTotals(); saveDraft(); shippingError.textContent = ""; }));
-  document.querySelectorAll('input[name="paymentMethod"]').forEach((input) => input.addEventListener("change", () => { updatePaymentDetails(); saveDraft(); paymentError.textContent = ""; }));
-  form?.addEventListener("input", (event) => { if (event.target.matches("input,select,textarea")) saveDraft(); });
-  form?.addEventListener("change", saveDraft);
+  differentAddress?.addEventListener("change", () => { updateAlternateDelivery(); saveDraft(); updatePlaceOrderAvailability(); });
+  document.querySelectorAll('input[name="shippingMethod"]').forEach((input) => input.addEventListener("change", () => { updateTotals(); saveDraft(); updatePlaceOrderAvailability(); shippingError.textContent = ""; }));
+  document.querySelectorAll('input[name="paymentMethod"]').forEach((input) => input.addEventListener("change", () => { updatePaymentDetails(); saveDraft(); updatePlaceOrderAvailability(); paymentError.textContent = ""; }));
+  form?.addEventListener("input", (event) => { if (event.target.matches("input,textarea")) { saveDraft(); updatePlaceOrderAvailability(); } });
+  form?.addEventListener("change", () => { saveDraft(); updatePlaceOrderAvailability(); });
+  form?.addEventListener("blur", (event) => {
+    const field = event.target;
+    if (field.matches('input:not([type="radio"]):not([type="checkbox"]):not([type="hidden"])') && (field.required || field.value)) validateField(field);
+  }, true);
   form?.addEventListener("submit", (event) => {
     event.preventDefault();
     if (!validateForm()) {
