@@ -1456,14 +1456,14 @@
 
   body:has(> main[class]) #site-footer .site-footer {
     min-height:0;
-    padding:48px 20px calc(56px + env(safe-area-inset-bottom, 0px));
+    padding:48px 20px calc(42px + env(safe-area-inset-bottom, 0px));
     background-color:var(--bg);
   }
 
   body:has(> main[class]) #site-footer .footer-brand {
     min-height:0;
     margin:0;
-    padding:0 0 48px;
+    padding:0 0 44px;
     border-bottom:0;
   }
 
@@ -1489,15 +1489,17 @@
   }
 
   body:has(> main[class]) #site-footer .footer-accordion-trigger {
-    min-height:100px;
+    height:80px;
+    min-height:80px;
+    padding-block:20px;
   }
 
   body:has(> main[class]) #site-footer .footer-bottom {
     flex-direction:column;
     align-items:flex-start;
-    gap:30px;
-    margin:32px 0 0;
-    padding:24px 0 0;
+    gap:24px;
+    margin:24px 0 0;
+    padding:20px 0 0;
   }
 
   body:has(> main[class]) #site-footer .footer-bottom p {
