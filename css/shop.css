@@ -802,6 +802,31 @@
     text-align:center;
   }
 
+  /* Product-detail recommendations keep the shared card design without the
+     catalog's equal-height stretching. */
+  .product-page :is(#recentlyViewedGrid,#relatedProductGrid) {
+    align-items:start;
+  }
+
+  .product-page :is(#recentlyViewedGrid,#relatedProductGrid) .product-card {
+    min-height:0;
+    height:auto;
+    align-self:start;
+  }
+
+  .product-page :is(#recentlyViewedGrid,#relatedProductGrid) .product-card-body {
+    min-height:0;
+    flex:0 1 auto;
+  }
+
+  .product-page :is(#recentlyViewedGrid,#relatedProductGrid) :is(.product-title,.product-description) {
+    min-height:0;
+  }
+
+  .product-page :is(#recentlyViewedGrid,#relatedProductGrid) .product-actions {
+    margin-top:8px;
+  }
+
   .pagination-row { margin-top:36px; }
 
   .pagination-row .button {
