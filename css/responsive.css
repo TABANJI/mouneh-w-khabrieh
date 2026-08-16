@@ -1344,6 +1344,18 @@
     text-align:left;
   }
 
+  #site-footer .footer-accordion-trigger:focus,
+  #site-footer .footer-accordion-trigger:focus-visible {
+    outline:0;
+    box-shadow:none;
+  }
+
+  #site-footer .footer-accordion-trigger:focus-visible span {
+    text-decoration:underline;
+    text-decoration-color:rgba(139,112,65,.42);
+    text-underline-offset:5px;
+  }
+
   #site-footer .footer-accordion-trigger span {
     margin:0;
     padding:0;
