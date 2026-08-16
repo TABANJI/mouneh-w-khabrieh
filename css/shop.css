@@ -578,8 +578,9 @@
     display:flex;
     width:100%;
     min-width:0;
-    min-height:0;
-    max-height:340px;
+    min-height:360px;
+    height:100%;
+    max-height:none;
     flex-direction:column;
     overflow:hidden;
     border:1px solid rgba(79,70,54,.1);
@@ -799,6 +800,64 @@
     font-size:.58rem;
     letter-spacing:.08em;
     text-align:center;
+  }
+
+  /* Product-detail recommendations keep the shared card design without the
+     catalog's equal-height stretching. */
+  .product-page :is(#recentlyViewedGrid,#relatedProductGrid) {
+    grid-auto-rows:max-content;
+    align-items:start;
+    align-content:start;
+  }
+
+  .product-page :is(#recentlyViewedGrid,#relatedProductGrid) .product-card {
+    display:flex;
+    min-height:0;
+    height:auto;
+    max-height:none;
+    flex:none;
+    align-self:start;
+  }
+
+  .product-page :is(#recentlyViewedGrid,#relatedProductGrid) .product-image-link {
+    display:block;
+    flex:none;
+  }
+
+  .product-page :is(#recentlyViewedGrid,#relatedProductGrid) .product-image {
+    height:clamp(180px,50vw,215px);
+    min-height:0;
+    aspect-ratio:auto;
+    padding:10px;
+  }
+
+  .product-page :is(#recentlyViewedGrid,#relatedProductGrid) .product-packshot {
+    max-width:84%;
+    max-height:88%;
+    object-fit:contain;
+    object-position:center;
+  }
+
+  .product-page :is(#recentlyViewedGrid,#relatedProductGrid) .product-card-body {
+    min-height:0;
+    padding:12px 12px 10px;
+    gap:0;
+    flex:none;
+  }
+
+  .product-page :is(#recentlyViewedGrid,#relatedProductGrid) :is(.product-title,.product-description) {
+    min-height:0;
+  }
+
+  .product-page :is(#recentlyViewedGrid,#relatedProductGrid) .product-actions {
+    min-height:48px;
+    margin-top:8px;
+    flex:none;
+  }
+
+  .product-page :is(#recentlyViewedGrid,#relatedProductGrid) .add-cart-button {
+    height:48px;
+    min-height:48px;
   }
 
   .pagination-row { margin-top:36px; }
