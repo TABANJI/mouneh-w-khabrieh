@@ -1441,68 +1441,6 @@
     padding-top:24px;
     gap:16px;
   }
-
-  /* One content-driven mobile footer rhythm across every page. */
-  body > main.page-shell[class] {
-    padding-bottom:16px;
-  }
-
-  body:has(> main[class]) #site-footer {
-    min-height:0;
-    margin:0;
-    padding:0;
-    background:var(--bg);
-  }
-
-  body:has(> main[class]) #site-footer .site-footer {
-    min-height:0;
-    padding:48px 20px calc(56px + env(safe-area-inset-bottom, 0px));
-    background-color:var(--bg);
-  }
-
-  body:has(> main[class]) #site-footer .footer-brand {
-    min-height:0;
-    margin:0;
-    padding:0 0 48px;
-    border-bottom:0;
-  }
-
-  body:has(> main[class]) #site-footer .footer-brand > span {
-    margin:0;
-  }
-
-  body:has(> main[class]) #site-footer .footer-brand strong {
-    margin:24px 0 26px;
-  }
-
-  body:has(> main[class]) #site-footer .footer-brand p {
-    margin:0;
-  }
-
-  body:has(> main[class]) #site-footer .footer-grid {
-    margin:0;
-  }
-
-  body:has(> main[class]) #site-footer .footer-group {
-    margin:0;
-    padding:0;
-  }
-
-  body:has(> main[class]) #site-footer .footer-accordion-trigger {
-    min-height:100px;
-  }
-
-  body:has(> main[class]) #site-footer .footer-bottom {
-    flex-direction:column;
-    align-items:flex-start;
-    gap:30px;
-    margin:32px 0 0;
-    padding:24px 0 0;
-  }
-
-  body:has(> main[class]) #site-footer .footer-bottom p {
-    margin:0;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) and (max-width: 768px) {
