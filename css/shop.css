@@ -839,7 +839,7 @@
     letter-spacing:.14em;
   }
 
-  :is(.shop-page,.wishlist-page,.cart-page,.product-page) ~ #site-footer .footer-brand strong {
+  :is(.shop-page,.wishlist-page,.cart-page) ~ #site-footer .footer-brand strong {
     margin:12px 0 26px;
     color:#363a31;
     font-size:clamp(2.5rem,12vw,4rem);
