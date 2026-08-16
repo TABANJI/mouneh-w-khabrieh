@@ -20,21 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const featuredContainer = document.getElementById("featuredProducts");
 
-  // Stable, category-diverse homepage recommendations: the first eight cards
-  // represent eight pantry categories, with no category appearing more than twice.
   const featured = [
-    "fig-jam",
-    "pomegranate-molasses",
-    "olive-gold-extra-virgin",
-    "wild-cucumbers",
-    "thyme-labneh-rounds",
-    "mountain-zatar",
-    "roasted-pistachios",
-    "dried-figs",
-    "wild-thyme-honey",
-    "tamarind-paste",
-    "spicy-labneh-rounds",
-    "pickled-cucumbers"
+    "fig-jam", "apricot-jam", "wild-cucumbers", "green-olives-with-chili-paste", "thyme-labneh-rounds",
+    "olives-stuffed-with-chili", "mixed-pickles", "berry-jam", "labneh-rounds-in-oil-goat", "spicy-labneh-rounds",
+    "pickled-cucumbers", "cornichons"
   ]
     .map((id) => products.find((product) => product.id === id)).filter(Boolean);
   if (featuredContainer) Mouneh.renderSectionProducts(featuredContainer, featured);
