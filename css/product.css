@@ -307,6 +307,7 @@
     min-width:0;
     max-width:100%;
     margin-top:60px;
+    overflow-x:clip;
   }
   .recently-viewed-products .section-heading,
   .related-products .section-heading { margin-bottom:26px; }
