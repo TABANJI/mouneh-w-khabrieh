@@ -19,26 +19,67 @@
     </header>
 
     <div class="checkout-layout">
-      <form class="checkout-details" id="checkoutDetailsForm">
-        <h2>Delivery details</h2>
-        <div class="checkout-fields">
-          <label>First name<input name="firstName" autocomplete="given-name" required /></label>
-          <label>Last name<input name="lastName" autocomplete="family-name" required /></label>
-          <label class="checkout-field-wide">Email<input name="email" type="email" autocomplete="email" required /></label>
-          <label class="checkout-field-wide">Phone<input name="phone" type="tel" autocomplete="tel" required /></label>
-          <label class="checkout-field-wide">Address<input name="address" autocomplete="street-address" required /></label>
-          <label>City<input name="city" autocomplete="address-level2" required /></label>
-          <label>Country<input name="country" autocomplete="country-name" required /></label>
-        </div>
-        <button class="button button-primary checkout-continue" type="submit">Save delivery details</button>
+      <form class="checkout-form" id="checkoutForm" novalidate>
+        <section class="checkout-card checkout-details">
+          <h2>Billing &amp; Delivery Details</h2>
+          <div class="checkout-fields">
+            <label>First name <em>*</em><input name="firstName" autocomplete="given-name" required /><small class="field-error"></small></label>
+            <label>Last name <em>*</em><input name="lastName" autocomplete="family-name" required /><small class="field-error"></small></label>
+            <label class="checkout-field-wide">Company name (optional)<input name="company" autocomplete="organization" /><small class="field-error"></small></label>
+            <label class="checkout-field-wide">Country / Region <em>*</em><select name="country" autocomplete="country-name" required><option value="Lebanon" selected>Lebanon</option><option value="Jordan">Jordan</option><option value="Syria">Syria</option><option value="United Arab Emirates">United Arab Emirates</option><option value="Other">Other</option></select><small class="field-error"></small></label>
+            <label class="checkout-field-wide">Street address <em>*</em><input name="address" autocomplete="street-address" required /><small class="field-error"></small></label>
+            <label class="checkout-field-wide">Apartment, suite, floor, building (optional)<input name="address2" autocomplete="address-line2" /><small class="field-error"></small></label>
+            <label>Town / City <em>*</em><input name="city" autocomplete="address-level2" required /><small class="field-error"></small></label>
+            <label>Postcode / ZIP (optional)<input name="postcode" autocomplete="postal-code" /><small class="field-error"></small></label>
+            <label>Phone <em>*</em><input name="phone" type="tel" autocomplete="tel" required /><small class="field-error"></small></label>
+            <label>Email address <em>*</em><input name="email" type="email" autocomplete="email" required /><small class="field-error"></small></label>
+          </div>
+
+          <label class="checkout-checkbox"><input id="differentAddress" name="differentAddress" type="checkbox" /><span aria-hidden="true"></span>Ship to a different address</label>
+          <div class="alternate-delivery" id="alternateDelivery" aria-hidden="true">
+            <h3>Delivery address</h3>
+            <div class="checkout-fields">
+              <label>First name <em>*</em><input name="deliveryFirstName" autocomplete="shipping given-name" /><small class="field-error"></small></label>
+              <label>Last name <em>*</em><input name="deliveryLastName" autocomplete="shipping family-name" /><small class="field-error"></small></label>
+              <label class="checkout-field-wide">Country / Region <em>*</em><select name="deliveryCountry" autocomplete="shipping country-name"><option value="Lebanon" selected>Lebanon</option><option value="Jordan">Jordan</option><option value="Syria">Syria</option><option value="United Arab Emirates">United Arab Emirates</option><option value="Other">Other</option></select><small class="field-error"></small></label>
+              <label class="checkout-field-wide">Street address <em>*</em><input name="deliveryAddress" autocomplete="shipping street-address" /><small class="field-error"></small></label>
+              <label class="checkout-field-wide">Apartment, suite, floor (optional)<input name="deliveryAddress2" autocomplete="shipping address-line2" /><small class="field-error"></small></label>
+              <label>Town / City <em>*</em><input name="deliveryCity" autocomplete="shipping address-level2" /><small class="field-error"></small></label>
+              <label>Postcode / ZIP (optional)<input name="deliveryPostcode" autocomplete="shipping postal-code" /><small class="field-error"></small></label>
+              <label class="checkout-field-wide">Phone <em>*</em><input name="deliveryPhone" type="tel" autocomplete="shipping tel" /><small class="field-error"></small></label>
+            </div>
+          </div>
+
+          <label class="checkout-notes">Order notes (optional)<textarea name="notes" rows="4" placeholder="Notes about your order, delivery instructions, preferred time, or anything we should know."></textarea></label>
+        </section>
+
+        <section class="checkout-card payment-card">
+          <h2>Payment Information</h2>
+          <div class="checkout-options payment-options" id="paymentOptions">
+            <label class="checkout-option"><input type="radio" name="paymentMethod" value="cash-on-delivery" checked /><span class="custom-radio"></span><span><strong>Cash on delivery</strong><small>Pay with cash when your order is delivered.</small></span></label>
+            <label class="checkout-option"><input type="radio" name="paymentMethod" value="usdt" /><span class="custom-radio"></span><span><strong>Pay by USDT</strong><small class="payment-detail" data-payment="usdt" hidden>USDT payment instructions will be provided after the order is submitted.</small></span></label>
+            <label class="checkout-option"><input type="radio" name="paymentMethod" value="wish-money" /><span class="custom-radio"></span><span><strong>Wish Money</strong><small class="payment-detail" data-payment="wish-money" hidden>Wish Money payment instructions will be provided after the order is submitted.</small></span></label>
+          </div>
+          <small class="group-error" id="paymentError"></small>
+          <button class="button button-primary place-order" type="submit" id="placeOrderButton">Place Order</button>
+        </section>
       </form>
 
-      <aside class="checkout-summary" aria-labelledby="checkoutSummaryTitle">
+      <aside class="checkout-card checkout-summary" aria-labelledby="checkoutSummaryTitle">
         <h2 id="checkoutSummaryTitle">Order summary</h2>
         <div class="checkout-items" id="checkoutItems"></div>
-        <div class="checkout-summary-row"><span>Subtotal</span><span id="checkoutSubtotal">$0.00</span></div>
-        <div class="checkout-summary-row"><span>Estimated delivery</span><span>Calculated after address</span></div>
-        <div class="checkout-summary-row checkout-summary-total"><strong>Estimated total</strong><strong id="checkoutTotal">$0.00</strong></div>
+        <h3>Shipping</h3>
+        <div class="checkout-options shipping-options" id="shippingOptions">
+          <label class="checkout-option"><input form="checkoutForm" type="radio" name="shippingMethod" value="beirut" checked /><span class="custom-radio"></span><span><strong>Beirut delivery <b>Free</b></strong><small>Free delivery within Beirut.</small></span></label>
+          <label class="checkout-option"><input form="checkoutForm" type="radio" name="shippingMethod" value="outside-beirut" /><span class="custom-radio"></span><span><strong>Delivery outside Beirut <b>$3.00</b></strong><small>Delivery across Lebanon.</small></span></label>
+          <label class="checkout-option"><input form="checkoutForm" type="radio" name="shippingMethod" value="pickup" /><span class="custom-radio"></span><span><strong>Local pickup <b>Free</b></strong><small>Collect your order from our store. We will contact you when it is ready.</small></span></label>
+        </div>
+        <small class="group-error" id="shippingError"></small>
+        <div class="checkout-totals">
+          <div class="checkout-summary-row"><span>Subtotal</span><span id="checkoutSubtotal">$0.00</span></div>
+          <div class="checkout-summary-row"><span>Shipping</span><span id="checkoutShipping">Free</span></div>
+          <div class="checkout-summary-row checkout-summary-total"><strong>Total</strong><strong id="checkoutTotal">$0.00</strong></div>
+        </div>
         <p class="checkout-coupon" id="checkoutCoupon" hidden></p>
         <a class="checkout-back" href="cart.html">← Return to cart</a>
       </aside>
