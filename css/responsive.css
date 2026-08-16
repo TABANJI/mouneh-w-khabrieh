@@ -636,6 +636,22 @@
     width:42px;
     height:44px;
     flex-basis:42px;
+    -webkit-tap-highlight-color:transparent;
+  }
+
+  .homepage-body .header-actions .icon-button:hover,
+  .homepage-body .header-actions .icon-button:focus,
+  .homepage-body .header-actions .icon-button:focus-visible,
+  .homepage-body .header-actions .icon-button:active,
+  .homepage-body .header-actions .icon-button[aria-expanded="true"],
+  .homepage-body .header-actions .icon-button[aria-pressed="true"] {
+    outline:0;
+    background:transparent;
+    box-shadow:none;
+  }
+
+  .homepage-body .header-actions .icon-button:focus-visible {
+    color:var(--gold);
   }
 
   .homepage-body .header-actions .ui-icon {
