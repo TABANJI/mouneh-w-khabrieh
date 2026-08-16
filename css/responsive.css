@@ -1333,7 +1333,7 @@
   #site-footer .footer-accordion-trigger {
     display:flex;
     width:100%;
-    min-height:64px;
+    min-height:44px;
     padding:0;
     align-items:center;
     justify-content:space-between;

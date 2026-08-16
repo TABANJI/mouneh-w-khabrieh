@@ -905,10 +905,6 @@
     padding-bottom:38px;
   }
 
-  :is(.wishlist-page,.cart-page) ~ #site-footer .footer-accordion-trigger {
-    min-height:64px;
-  }
-
   :is(.wishlist-page,.cart-page) ~ #site-footer .footer-accordion-trigger span {
     font-weight:600;
     letter-spacing:.155em;
