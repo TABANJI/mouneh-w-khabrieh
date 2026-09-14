@@ -1492,10 +1492,10 @@
 @media(max-width:768px) {
   .homepage .hero-panel {
     background-image:
-      linear-gradient(rgba(248,241,232,.66),rgba(248,241,232,.66)),
+      linear-gradient(180deg,rgba(248,241,232,.82) 0%,rgba(248,241,232,.62) 26%,rgba(248,241,232,.68) 100%),
       url('../assets/images/фонвивіски.png');
     background-size:cover;
-    background-position:center 34%;
+    background-position:center 36%;
     background-repeat:no-repeat;
   }
 }
