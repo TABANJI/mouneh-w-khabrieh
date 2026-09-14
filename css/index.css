@@ -1490,6 +1490,17 @@
 }
 
 @media(max-width:768px) {
+  .homepage .hero-panel {
+    background-image:
+      linear-gradient(rgba(248,241,232,.66),rgba(248,241,232,.66)),
+      url('../assets/images/фонвивіски.png');
+    background-size:cover;
+    background-position:center 34%;
+    background-repeat:no-repeat;
+  }
+}
+
+@media(max-width:768px) {
   .homepage .section-editorial-transition::after { display:none; }
   .homepage ~ #site-footer .site-footer::after { display:none; }
 }
