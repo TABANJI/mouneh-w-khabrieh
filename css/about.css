@@ -96,7 +96,7 @@
   }
 
   .about-story-hero {
-    padding:30px 0 58px;
+    padding:30px 0 48px;
   }
 
   .about-story-intro .eyebrow,
@@ -126,7 +126,7 @@
   .about-story-section {
     width:100%;
     max-width:none;
-    padding:54px 0 58px;
+    padding:44px 0 48px;
   }
 
   .about-story-section--selection {
@@ -149,7 +149,7 @@
   }
 
   .about-story-cta {
-    padding:58px 0 68px;
+    padding:48px 0 34px;
   }
 
   .about-story-cta h2 {
@@ -162,5 +162,27 @@
     display:flex;
     align-items:center;
     justify-content:center;
+  }
+
+  .about-page ~ #site-footer .site-footer {
+    padding:44px 20px 32px;
+  }
+
+  .about-page ~ #site-footer .footer-brand {
+    margin-bottom:34px;
+    padding-bottom:30px;
+  }
+
+  .about-page ~ #site-footer .footer-brand strong {
+    margin:10px 0 18px;
+  }
+
+  .about-page ~ #site-footer .footer-brand p {
+    margin:0;
+    color:var(--muted);
+  }
+
+  .about-page ~ #site-footer .footer-bottom {
+    gap:10px;
   }
 }
