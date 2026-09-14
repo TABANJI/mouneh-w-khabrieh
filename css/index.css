@@ -1490,43 +1490,6 @@
 }
 
 @media(max-width:768px) {
-  .homepage .hero-panel {
-    position:relative;
-    overflow:hidden;
-    isolation:isolate;
-    background:var(--bg);
-  }
-
-  .homepage .hero-panel::before {
-    content:"";
-    position:absolute;
-    inset:0 0 auto;
-    z-index:0;
-    width:100%;
-    height:52%;
-    pointer-events:none;
-    background-image:
-      linear-gradient(180deg,rgba(248,241,232,.05) 0%,rgba(248,241,232,.12) 32%,rgba(248,241,232,.74) 60%,var(--bg) 76%),
-      linear-gradient(90deg,rgba(248,241,232,.24) 0%,rgba(248,241,232,.08) 68%,transparent 100%),
-      url('../assets/images/фонвивіски.png');
-    background-size:100% 100%,100% 100%,cover;
-    background-position:center,center,left center;
-    background-repeat:no-repeat;
-  }
-
-  .homepage .hero-copy,
-  .homepage .hero-visual {
-    position:relative;
-    z-index:1;
-  }
-
-  .homepage .hero-copy .eyebrow,
-  .homepage .hero-copy h1 {
-    text-shadow:0 1px 14px rgba(248,241,232,.3);
-  }
-}
-
-@media(max-width:768px) {
   .homepage .section-editorial-transition::after { display:none; }
   .homepage ~ #site-footer .site-footer::after { display:none; }
 }

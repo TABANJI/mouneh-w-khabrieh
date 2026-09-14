@@ -660,11 +660,46 @@
   }
 
   .homepage .hero-visual {
-    display:none;
+    display:block;
+    order:-1;
+    width:100%;
+    padding:0;
   }
 
   .homepage .hero-panel {
+    gap:0;
     padding-top:0;
+    background:var(--bg);
+  }
+
+  .homepage .hero-copy {
+    padding-top:clamp(28px,8vw,36px);
+  }
+
+  .homepage .hero-visual .hero-image,
+  .homepage .hero-visual .hero-image.has-lifestyle-image {
+    width:100%;
+    height:clamp(220px,61vw,260px);
+    min-height:0;
+    aspect-ratio:auto;
+    background-image:url('../assets/images/фонвивіски.png');
+    background-size:cover;
+    background-position:center 18%;
+    background-repeat:no-repeat;
+    box-shadow:none;
+  }
+
+  .homepage .hero-visual .hero-image::before {
+    display:none;
+  }
+
+  .homepage .hero-visual .hero-image::after {
+    content:"";
+    position:absolute;
+    inset:0;
+    display:block;
+    background:linear-gradient(180deg,transparent 62%,rgba(248,241,232,.42) 80%,var(--bg) 100%);
+    pointer-events:none;
   }
 
   .homepage .hero-copy .eyebrow {
@@ -675,19 +710,19 @@
 
   .homepage .hero-copy h1 {
     max-width:94%;
-    margin:30px 0 36px;
+    margin:24px 0 36px;
     line-height:.95;
   }
 
   .homepage .hero-copy>p:not(.hero-note) {
     max-width:92%;
-    margin:0 0 42px;
+    margin:0 0 36px;
     font-size:1.0625rem;
     line-height:1.5;
   }
 
   .homepage .hero-actions {
-    gap:26px;
+    gap:22px;
   }
 
   .homepage .hero-actions .button-primary {
