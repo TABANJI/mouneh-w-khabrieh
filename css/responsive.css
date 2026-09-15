@@ -273,7 +273,7 @@
     aspect-ratio:1.75 / 1;
   }
   .homepage .category-tile div { align-self:end; }
-  .homepage .category-index { bottom:calc(100% + 12px); font-size:.58rem; }
+  .homepage .category-index { display:none; }
   .homepage .category-tile strong { font-size:clamp(1.12rem,5vw,1.42rem); line-height:1.08; }
   .homepage .category-tile p { display:none; }
   .homepage .category-tile::after {
