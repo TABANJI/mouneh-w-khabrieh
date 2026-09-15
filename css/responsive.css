@@ -696,12 +696,23 @@
     display:flex;
     align-items:center;
     justify-content:center;
+    color:#fff;
+    border-color:var(--olive);
     border-radius:18px;
+    background:var(--olive);
     box-shadow:none;
     transition:background-color .2s ease, opacity .2s ease, transform .2s ease;
   }
 
+  .homepage .hero-actions .button-primary:hover,
+  .homepage .hero-actions .button-primary:focus-visible {
+    color:#fff;
+    background:#172419;
+  }
+
   .homepage .hero-actions .button-primary:active {
+    color:#fff;
+    background:#172419;
     opacity:.92;
     transform:translateY(1px);
   }
