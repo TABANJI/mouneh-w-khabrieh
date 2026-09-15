@@ -673,7 +673,7 @@
   }
 
   .homepage .hero-copy {
-    padding-top:clamp(28px,8vw,36px);
+    padding-top:clamp(22px,6.5vw,28px);
   }
 
   .homepage .hero-visual .hero-image,
@@ -684,7 +684,7 @@
     aspect-ratio:auto;
     background-image:url('../assets/images/фонвивіски.png');
     background-size:cover;
-    background-position:center 18%;
+    background-position:center 52%;
     background-repeat:no-repeat;
     box-shadow:none;
   }
@@ -710,19 +710,19 @@
 
   .homepage .hero-copy h1 {
     max-width:94%;
-    margin:24px 0 36px;
+    margin:17px 0 24px;
     line-height:.95;
   }
 
   .homepage .hero-copy>p:not(.hero-note) {
     max-width:92%;
-    margin:0 0 36px;
+    margin:0 0 26px;
     font-size:1.0625rem;
     line-height:1.5;
   }
 
   .homepage .hero-actions {
-    gap:22px;
+    gap:20px;
   }
 
   .homepage .hero-actions .button-primary {
@@ -951,7 +951,7 @@
 
 @media (max-width: 480px) {
   .homepage .hero-copy h1 {
-    margin-bottom:30px;
+    margin-bottom:24px;
     font-size:clamp(1.7rem,8.6vw,2.3rem);
     line-height:.92;
     white-space:nowrap;
@@ -966,11 +966,11 @@
   }
 
   .homepage .hero-copy>p:not(.hero-note) {
-    margin-bottom:35px;
+    margin-bottom:26px;
   }
 
   .homepage .hero-actions {
-    gap:22px;
+    gap:20px;
   }
 
   .homepage .section-intro {
